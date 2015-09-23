@@ -17,7 +17,7 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "cacerts"
-dependency "windshaft-cartodb"
+dependency "cartodb-windshaft"
 dependency "cartodb-sql-api"
 dependency "unicorn"
 dependency "imagemagick"
