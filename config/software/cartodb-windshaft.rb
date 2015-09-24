@@ -6,7 +6,7 @@ relative_path "#{name}"
 
 # depends on mapnik but node-mapnik b/c package.json depends on node-mapnik from "https://github.com/CartoDB/node-mapnik/tarball/1.4.15-cdb1"
 dependency 'libXrender'
-dependency 'mapnik'
+dependency 'cartodb-mapnik'
 dependency 'nodejs'
 dependency 'protobuf'
 dependency 'pango'

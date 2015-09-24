@@ -1,4 +1,4 @@
-name 'mapnik'
+name 'cartodb-mapnik'
 # default_version 'v3.0.0-rc1'
 # default_version 'v2.2.0'
 default_version '2.3.x'   # required for static maps export
