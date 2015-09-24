@@ -1,0 +1,35 @@
+:100644 100644 c5a2248... 0000000... M	configure.ac
+
+diff --git a/configure.ac b/configure.ac
+index c5a2248..a5bd550 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -53,8 +53,7 @@ AC_SUBST(DL_LIBS)
+ 
+ save_LIBS="${LIBS}"
+ LIBS=""
+-AC_SEARCH_LIBS(initscr, [curses ncurses],
+-	[have_curses=yes], [have_curses=no])
++AC_SEARCH_LIBS(initscr, [curses ncurses], [have_curses=yes], [have_curses=no])
+ CURSES_LIBS="${LIBS}"
+ LIBS="${save_LIBS}"
+ AC_SUBST(CURSES_LIBS)
+@@ -65,6 +64,18 @@ AM_CONDITIONAL([HAVE_CURSES], [test x$have_curses = xyes])
+ 
+ save_LIBS="${LIBS}"
+ LIBS=""
++AC_SEARCH_LIBS(raw, [tinfo], [have_terminfo=yes], [have_terminfo=no])
++TERMINFO_LIBS="${LIBS}"
++LIBS="${save_LIBS}"
++AC_SUBST(TERMINFO_LIBS)
++if test "$have_terminfo" = no; then
++	AC_MSG_WARN([terminfo not found; some tools will not be built])
++fi
++AM_CONDITIONAL([HAVE_TERMINFO], [test x$have_curses = xyes])
++
++
++save_LIBS="${LIBS}"
++LIBS=""
+ AC_SEARCH_LIBS(pthread_create, [thr pthread c_r])
+ PTHREAD_LIBS="${LIBS}"
+ LIBS="${save_LIBS}"

@@ -1,0 +1,71 @@
+:100644 100644 b66b66d... 0000000... M	bin/varnishhist/Makefile.am
+:100644 100644 4ccf4b9... 0000000... M	bin/varnishsizes/Makefile.am
+:100644 100644 876c365... 0000000... M	bin/varnishstat/Makefile.am
+:100644 100644 27951ea... 0000000... M	bin/varnishtest/Makefile.am
+:100644 100644 ac62253... 0000000... M	bin/varnishtop/Makefile.am
+
+diff --git a/bin/varnishhist/Makefile.am b/bin/varnishhist/Makefile.am
+index b66b66d..1ff8178 100644
+--- a/bin/varnishhist/Makefile.am
++++ b/bin/varnishhist/Makefile.am
+@@ -13,7 +13,7 @@ varnishhist_LDADD = \
+ 	$(top_builddir)/lib/libvarnishcompat/libvarnishcompat.la \
+ 	$(top_builddir)/lib/libvarnishapi/libvarnishapi.la \
+ 	-lm \
+-	${CURSES_LIBS} ${PTHREAD_LIBS}
++	${CURSES_LIBS} ${TERMINFO_LIBS} ${PTHREAD_LIBS}
+ 
+ varnishhist.1: $(top_srcdir)/doc/sphinx/reference/varnishhist.rst
+ if HAVE_RST2MAN
+diff --git a/bin/varnishsizes/Makefile.am b/bin/varnishsizes/Makefile.am
+index 4ccf4b9..21fbad1 100644
+--- a/bin/varnishsizes/Makefile.am
++++ b/bin/varnishsizes/Makefile.am
+@@ -13,7 +13,7 @@ varnishsizes_LDADD = \
+ 	$(top_builddir)/lib/libvarnishcompat/libvarnishcompat.la \
+ 	$(top_builddir)/lib/libvarnishapi/libvarnishapi.la \
+ 	-lm \
+-	${CURSES_LIBS} ${PTHREAD_LIBS}
++	${CURSES_LIBS} ${TERMINFO_LIBS} ${PTHREAD_LIBS}
+ 
+ varnishsizes.1: $(top_srcdir)/doc/sphinx/reference/varnishsizes.rst
+ if HAVE_RST2MAN
+diff --git a/bin/varnishstat/Makefile.am b/bin/varnishstat/Makefile.am
+index 876c365..97b9f32 100644
+--- a/bin/varnishstat/Makefile.am
++++ b/bin/varnishstat/Makefile.am
+@@ -12,7 +12,7 @@ varnishstat_LDADD = \
+ 	$(top_builddir)/lib/libvarnish/libvarnish.la \
+ 	$(top_builddir)/lib/libvarnishcompat/libvarnishcompat.la \
+ 	$(top_builddir)/lib/libvarnishapi/libvarnishapi.la \
+-	${CURSES_LIBS} ${RT_LIBS} ${PTHREAD_LIBS}
++	${CURSES_LIBS} ${TERMINFO_LIBS} ${RT_LIBS} ${PTHREAD_LIBS}
+ 
+ varnishstat.1: $(top_srcdir)/doc/sphinx/reference/varnishstat.rst
+ if HAVE_RST2MAN
+diff --git a/bin/varnishtest/Makefile.am b/bin/varnishtest/Makefile.am
+index 27951ea..3acea98 100644
+--- a/bin/varnishtest/Makefile.am
++++ b/bin/varnishtest/Makefile.am
+@@ -1,7 +1,7 @@
+ # $Id$
+ 
+ TESTS_ENVIRONMENT = ./varnishtest
+-TESTS = $(srcdir)/tests/*.vtc
++TESTS = ./tests/*.vtc
+ 
+ DISTCLEANFILES = _.ok
+ 
+diff --git a/bin/varnishtop/Makefile.am b/bin/varnishtop/Makefile.am
+index ac62253..3356f53 100644
+--- a/bin/varnishtop/Makefile.am
++++ b/bin/varnishtop/Makefile.am
+@@ -12,7 +12,7 @@ varnishtop_LDADD = \
+ 	$(top_builddir)/lib/libvarnish/libvarnish.la \
+ 	$(top_builddir)/lib/libvarnishcompat/libvarnishcompat.la \
+ 	$(top_builddir)/lib/libvarnishapi/libvarnishapi.la \
+-	${CURSES_LIBS} ${PTHREAD_LIBS}
++	${CURSES_LIBS} ${TERMINFO_LIBS} ${PTHREAD_LIBS}
+ 
+ varnishtop.1: $(top_srcdir)/doc/sphinx/reference/varnishtop.rst
+ if HAVE_RST2MAN
