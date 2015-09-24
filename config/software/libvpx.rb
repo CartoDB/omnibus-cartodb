@@ -1,5 +1,5 @@
 #
-# Copyright 2012-2014 Chef Software, Inc.
+# Copyright 2014 Drew Rapenchuk
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,35 +14,22 @@
 # limitations under the License.
 #
 
-name "libxml2"
-default_version "2.9.1"
+name "libvpx"
+default_version "1.3.0"
 
-dependency "zlib"
-dependency "libiconv"
-dependency "liblzma"
+dependency "yasm"
 
-version "2.7.8" do
-  source md5: "8127a65e8c3b08856093099b52599c86"
-end
+source url: "http://anduin.linuxfromscratch.org/sources/other/libvpx-v1.3.0.tar.xz",
+       md5: "528cb52934d9a731dfc0a2853b1e260d"
 
-version "2.9.1" do
-  source md5: "9c0cfef285d5c4a5c80d00904ddab380"
-end
-
-source url: "http://xmlsoft.org/sources/libxml2-#{version}.tar.gz"
-
-relative_path "libxml2-#{version}"
+relative_path "libvpx-v#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --with-zlib=#{install_dir}/embedded" \
-          " --with-iconv=#{install_dir}/embedded" \
-          " --without-python" \
-          " --without-icu", env: env
+          " --prefix=#{install_dir}/embedded", env: env
 
   make "-j #{workers}", env: env
-  make "install", env: env
+  make "-j #{workers} install", env: env
 end

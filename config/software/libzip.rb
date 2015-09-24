@@ -1,5 +1,5 @@
 #
-# Copyright 2012-2014 Chef Software, Inc.
+# Copyright 2014 Drew Rapenchuk
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,35 +14,20 @@
 # limitations under the License.
 #
 
-name "libxml2"
-default_version "2.9.1"
+name "libzip"
+default_version "0.11.2"
 
-dependency "zlib"
-dependency "libiconv"
-dependency "liblzma"
+source url: "http://www.nih.at/libzip/libzip-0.11.2.tar.gz",
+       md5: "c5437df15e4825d40cdc3ec8b9b7516c"
 
-version "2.7.8" do
-  source md5: "8127a65e8c3b08856093099b52599c86"
-end
-
-version "2.9.1" do
-  source md5: "9c0cfef285d5c4a5c80d00904ddab380"
-end
-
-source url: "http://xmlsoft.org/sources/libxml2-#{version}.tar.gz"
-
-relative_path "libxml2-#{version}"
+relative_path "libzip-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --with-zlib=#{install_dir}/embedded" \
-          " --with-iconv=#{install_dir}/embedded" \
-          " --without-python" \
-          " --without-icu", env: env
+          " --prefix=#{install_dir}/embedded", env: env
 
   make "-j #{workers}", env: env
-  make "install", env: env
+  make "-j #{workers} install", env: env
 end
