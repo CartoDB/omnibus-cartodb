@@ -1,4 +1,4 @@
-name 'pg_schema_triggers'
+name 'cartodb-pg_schema_triggers'
 default_version '0.1'
 
 source url: "https://github.com/CartoDB/#{name}/archive/#{version}.tar.gz",
