@@ -1,4 +1,4 @@
-name 'cartodb'
+name 'cartodb-www'
 # Vishal's branch
 default_version 'blp_sso'
 #default_version 'master'
@@ -6,7 +6,7 @@ default_version 'blp_sso'
 #source git: "https://github.com/CartoDB/#{name}",
 #       submodules: true
 
-source git: "https://github.com/bloomberg/#{name}",
+source git: "https://github.com/bloomberg/cartodb",
        submodules: true
 
 relative_path "#{name}-#{version}"
