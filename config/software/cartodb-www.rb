@@ -15,12 +15,11 @@ dependency "zip"
 dependency "ruby"
 dependency "bundler"
 dependency "nokogiri"
-dependency "maps-extensions"
+# dependency "maps-extensions"
+
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  
-  command git, env: env
   
   bundle = ["bundle",
             "install",
