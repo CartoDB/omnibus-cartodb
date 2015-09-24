@@ -7,7 +7,7 @@ source url: "http://download.osgeo.org/postgis/source/#{name}-#{version}.tar.gz"
 relative_path "#{name}-#{version}"
 
 dependency 'postgresql'
-dependency 'gdal'
+dependency 'cartodb-gdal'
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)

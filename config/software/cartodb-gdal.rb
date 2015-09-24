@@ -1,4 +1,4 @@
-name 'gdal'
+name 'cartodb-gdal'
 default_version 'ogr2ogr2_2.1.0+svn.29639-precise1'
 
 source url: "https://github.com/CartoDB/#{name}/archive/#{version}.tar.gz",

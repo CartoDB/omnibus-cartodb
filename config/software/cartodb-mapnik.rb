@@ -26,7 +26,7 @@ dependency "proj"
 dependency "python"
 dependency "python-nose"
 dependency "ruby"
-dependency "gdal"
+dependency "cartodb-gdal"
 dependency "postgis"
 
 build do

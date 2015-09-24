@@ -5,7 +5,7 @@ source git: "https://github.com/CartoDB/#{name}"
 
 relative_path "#{name}"
 
-dependency 'gdal'
+dependency 'cartodb-gdal'
 dependency 'nodejs'
 dependency 'cartodb-postgresql'
 dependency 'redis'
