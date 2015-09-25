@@ -1,8 +1,7 @@
 name 'ImageMagick'
-default_version '6.9.2-1'
+default_version '59c320b90d2228fabfe1de94e3be1d97768d8991'
 
-source url: "http://www.imagemagick.org/download/releases/#{name}-#{version}.tar.gz",
-       md5: '28e868ddc9aa23b2c7af8fd2505b814e'
+source git: "https://github.com/#{name}/#{name}.git"
 
 relative_path "#{name}-#{version}"
 
