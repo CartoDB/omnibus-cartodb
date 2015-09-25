@@ -1,7 +1,7 @@
 name 'cartodb-gdal'
 default_version 'ogr2ogr2_2.1.0+svn.29639-precise1'
 
-source url: "https://github.com/CartoDB/#{name}/archive/#{version}.tar.gz",
+source url: "https://github.com/CartoDB/gdal/archive/#{version}.tar.gz",
        md5: '22fdd46ad6ae9fa75118545c4d221fc9'
 
 relative_path "gdal-ogr2ogr2_2.1.0-svn.29639-precise1/gdal"
