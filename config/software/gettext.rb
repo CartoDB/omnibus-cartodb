@@ -35,7 +35,7 @@ build do
   ]
 
   command configure.join(" "), :env => env
-  command "make", :env => env
+  command "make -j #{workers}", :env => env
   command "make install"
 
 end

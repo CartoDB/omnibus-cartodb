@@ -36,7 +36,7 @@ build do
 
   command "phpize", :env => env
   command configure.join(" "), :env => env
-  command "make", :env => env
+  command "make -j #{workers}", :env => env
   command "make install"
   command "echo 'extension=memcached.so' > #{install_dir}/embedded/php/etc/shared/memcached.ini"
 

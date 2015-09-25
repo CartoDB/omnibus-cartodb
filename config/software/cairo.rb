@@ -29,10 +29,11 @@ build do
   configure = [
     "./configure",
     "--prefix=#{install_dir}/embedded",
+    " --with-ld-opt=\"-L#{install_dir}/embedded/lib -Wl,-rpath,#{install_dir}/embedded/lib\""
   ]
 
   command configure.join(" "), :env => env
-  command "make", :env => env
-  command "make install"
+  command "make -j #{workers}", :env => env
+  command "make install", :env => env
 
 end
