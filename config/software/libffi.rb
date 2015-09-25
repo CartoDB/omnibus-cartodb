@@ -23,7 +23,7 @@ dependency "libtool"
 version("3.0.13") { source md5: "45f3b6dbc9ee7c7dfbbbc5feba571529" }
 version("3.2.1")  { source md5: "83b89587607e3eb65c70d361f13bab43" }
 
-source url: "http://www.mirrorservice.org/sites/sourceware.org/pub/libffi/#{name}#{version}.tar.gz"
+source url: "http://www.mirrorservice.org/sites/sourceware.org/pub/libffi/#{name}-#{version}.tar.gz"
 
 relative_path "libffi-#{version}"
 
