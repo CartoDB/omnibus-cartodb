@@ -1,7 +1,7 @@
 name 'protobuf'
 default_version '2.6.1'
 
-source url: "http://github.com/google/protobuf/releases/download/v#{version}/#{name}-#{version}.tar.gz",
+source url: "https://github.com/google/protobuf/releases/download/v#{version}/#{name}-#{version}.tar.gz",
        md5: 'f3916ce13b7fcb3072a1fa8cf02b2423'
 
 relative_path "#{name}-#{version}"

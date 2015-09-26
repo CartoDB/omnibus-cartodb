@@ -3,7 +3,7 @@ name "ghostscript"
 default_version "9.14"
 
 version "9.14" do
-  source md5: "586494befb443363338c1b6379f13973"
+  source md5: "88625624e9ecd2ee53aaa041b1efbc99"
 end
 
 dependency "expat"

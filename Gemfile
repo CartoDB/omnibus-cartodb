@@ -1,4 +1,4 @@
-source 'http://rubygems.mirror.dev.bloomberg.com'
+source 'http://rubygems.org'
 
 gemspec
 
