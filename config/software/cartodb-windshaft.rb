@@ -1,4 +1,4 @@
-name 'Windshaft-cartodb'
+name 'cartodb-windshaft'
 default_version 'cdb'
 
 source git: "https://github.com/CartoDB/#{name}"
