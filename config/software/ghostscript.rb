@@ -1,9 +1,13 @@
 
 name "ghostscript"
-default_version "9.14"
+default_version "9.16"
 
 version "9.14" do
   source md5: "88625624e9ecd2ee53aaa041b1efbc99"
+end
+
+version "9.16" do
+  source md5: "829319325bbdb83f5c81379a8f86f38f"
 end
 
 dependency "expat"
@@ -43,7 +47,7 @@ build do
   
   command configure.join(" "), :env => env
   
-  command "make so", :env => env
+  command "make -j #{workers} so", :env => env
   command "make install", :env => env
   command "make soinstall", :env => env
   #command "install -v -m644 base/*.h #{install_dir}/embedded/include", :env => env

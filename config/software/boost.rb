@@ -1,11 +1,19 @@
 name 'boost'
-# default_version '1.56.0'
-default_version '1.50.0'
+default_version '1.56.0'
+#default_version '1.50.0'
 
 us_version = version.gsub('.', '_')
 
-source url: "http://sourceforge.net/projects/boost/files/#{name}/#{version}/#{name}_#{us_version}.tar.bz2", 
-       md5: '52dd00be775e689f55a987baebccc462'
+source url: "http://sourceforge.net/projects/boost/files/#{name}/#{version}/#{name}_#{us_version}.tar.bz2"
+
+version "1.50.0" do
+  source md5: "52dd00be775e689f55a987baebccc462"
+end
+
+version "1.56.0" do
+  source md5: "a744cf167b05d72335f27c88115f211d"
+end
+
 
 relative_path "#{name}_#{us_version}"
 
