@@ -4,7 +4,7 @@ default_version '0.1'
 source url: "https://github.com/CartoDB/pg_schema_triggers/archive/#{version}.tar.gz",
        md5: '676afc94d2d72185661b84105aa0248e'
 
-relative_path "#{name}-#{version}"
+relative_path "pg_schema_triggers-#{version}"
 
 dependency "postgis"
 
