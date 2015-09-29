@@ -1,8 +1,3 @@
-#
-# Copyright 2013-2014 Bloomberg LP
-#
-#
-# This module will be used as a fastcgi to connect nginx to shibboleth
 
 name 'node-fastcgi'
 
