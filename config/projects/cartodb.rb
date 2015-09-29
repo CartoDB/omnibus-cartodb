@@ -30,7 +30,6 @@ dependency "cartodb-python-requirements"
 dependency "varnish-cache"
 dependency "nginx"
 dependency "forever"
-dependency "version-manifest"
 dependency "ruby-saml-gem"
 dependency "pg-gem"
-
+dependency "version-manifest"
