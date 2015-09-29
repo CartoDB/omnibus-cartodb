@@ -32,4 +32,6 @@ build do
   })
   
   sync "#{project_dir}", "#{install_dir}/embedded/#{name}-#{version}", exclude: ['**/.git', '**/node_modules']
+  
+  link "#{install_dir}/embedded/#{name}-#{version}", "#{install_dir}/embedded/cartodb"
 end
