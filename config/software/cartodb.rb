@@ -31,5 +31,5 @@ build do
      "LANG" => "en_US.UTF-8"
   })
   
-  sync "#{project_dir}", "#{install_dir}/embedded/#{name}-#{version}", exclude: '**/.git'
+  sync "#{project_dir}", "#{install_dir}/embedded/#{name}-#{version}", exclude: ['**/.git', '**/node_modules']
 end
