@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name        = "omnibus-cartodb-infrastructure"
   s.version     = "1.0.0"
-  s.authors     = ['Bloomberg DataVisualization team']
+  s.authors     = ['Bloomberg L.P.']
   s.summary     = %q{Omnibus project for all core CartoDB infrastructure}
 
   s.files         = `git ls-files`.split("\n")
