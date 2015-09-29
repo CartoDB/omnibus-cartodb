@@ -2,9 +2,9 @@
 # This project is a container of common libraries used by applications in CartoDB stack
 # Software dependents of these libraries shouldn't need to rebuild them but just deploy the produced package
 #
-name "nginx"
-maintainer "Data Visualization WEBMAPS team"
-homepage "https://cms.prod.bloomberg.com/team/display/datavis/Webmap"
+name "cartodb-infrastructure"
+maintainer "CartoDB team"
+homepage "https://github.com/CartoDB/omnibus-cartodb/blob/master/README.md"
 
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
@@ -89,5 +89,3 @@ dependency "ruby"
 dependency "bundler"
 dependency "nokogiri"
 dependency 'nodejs'
-
-
