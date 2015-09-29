@@ -1,15 +1,17 @@
 # see http://www.rubydoc.info/github/opscode/omnibus-ruby/Omnibus/Project for more detailed class doc
 name "cartodb"
-maintainer "Data Visualization WEBMAPS team"
-homepage "https://cms.prod.bloomberg.com/team/display/datavis/Webmap"
+maintainer "CartoDB team"
+homepage "https://github.com/CartoDB/omnibus-cartodb/blob/master/README.md"
 
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-package_user  "cartodb"
-package_group "cartodb"
+MYUSERNAME = ENV['LOGNAME']
 
-package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/bb/datavis'
+package_user  "#{MYUSERNAME}"
+package_group "#{MYUSERNAME}"
+
+package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/opt'
 install_dir "#{package_root}/#{name}"
 
 exclude "**/.git"
