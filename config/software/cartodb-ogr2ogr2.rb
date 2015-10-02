@@ -60,9 +60,9 @@ build do
      ].join(' ')
   # we have to pass with_standard_compiler_flags because configure is not setting the proper flags for libiconv.
   # we have to pass with_embedded_path because geos-config, xml2-config, curl-config are not being found otherwise.
-  command configure, cwd: 'gdal', env: with_standard_compiler_flags(with_embedded_path)
+  command configure, cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
 
-  make "-j #{workers}", cwd: 'gdal', env: with_standard_compiler_flags(with_embedded_path)
+  make "-j #{workers}", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
   
   sync "#{project_dir}/apps/ogr2ogr", "#{install_dir}/embedded/bin"
 end
