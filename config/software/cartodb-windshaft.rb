@@ -15,5 +15,5 @@ build do
   command 'npm preinstall', env: with_embedded_path
   # build from source to link node against embedded mapnik.
   command 'npm install --build-from-source -g -d', env: with_standard_compiler_flags(with_embedded_path)
-  command 'npm test'
+  command 'npm test', env: with_embedded_path
 end
