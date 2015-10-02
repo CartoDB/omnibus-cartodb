@@ -33,8 +33,6 @@ build do
   configure = 
      ['./configure',
          "--prefix=#{install_dir}/embedded",
-         "--enable-static=yes",
-         "--enable-shared=no",
          "--enable-option-checking",
          "--with-curl=#{install_dir}/embedded/bin",
          "--with-expat=#{install_dir}/embedded",
