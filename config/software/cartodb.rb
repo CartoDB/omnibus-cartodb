@@ -21,7 +21,7 @@ build do
   # install development and test dependecies for grunt run
   command 'npm install -d', env: env
   command 'npm install grunt', env: env
-  command 'npm install timer', env: env
+  command 'npm install grunt-timer', env: env
   command 'bundle install', env: env.merge({
     "BUNDLE_BUILD__CHARLOCK_HOLMES" => "--with-pkg-config=#{install_dir}/embedded/lib/pkgconfig/",
     "BUNDLE_BUILD__FFI" => "--with-pkg-config=#{install_dir}/embedded/lib/pkgconfig/",
