@@ -1,5 +1,5 @@
 name 'cartodb-ogr2ogr2'
-default_version 'upstream'
+default_version 'ogr2ogr2'
 
 source git: "https://github.com/CartoDB/gdal.git"
 
