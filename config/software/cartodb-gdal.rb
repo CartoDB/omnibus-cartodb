@@ -1,10 +1,9 @@
 name 'cartodb-gdal'
-default_version 'ogr2ogr2_2.1.0+svn.29639-precise1'
+default_version '1.11'
 
-source url: "https://github.com/CartoDB/gdal/archive/#{version}.tar.gz",
-       md5: '22fdd46ad6ae9fa75118545c4d221fc9'
+source git: "https://github.com/CartoDB/gdal.git"
 
-relative_path "gdal-ogr2ogr2_2.1.0-svn.29639-precise1/gdal"
+relative_path "#{name}-#{version}"
 
 dependency 'libiconv'
 dependency 'zlib'
@@ -59,8 +58,8 @@ build do
      ].join(' ')
   # we have to pass with_standard_compiler_flags because configure is not setting the proper flags for libiconv.
   # we have to pass with_embedded_path because geos-config, xml2-config, curl-config are not being found otherwise.
-  command configure, env: with_standard_compiler_flags(with_embedded_path)
+  command configure, cwd: 'gdal', env: with_standard_compiler_flags(with_embedded_path)
 
-  make "-j #{workers}", env: with_standard_compiler_flags(with_embedded_path)
-  make 'install'
+  make "-j #{workers}", cwd: 'gdal', env: with_standard_compiler_flags(with_embedded_path)
+  make 'install', cwd: 'gdal'
 end
