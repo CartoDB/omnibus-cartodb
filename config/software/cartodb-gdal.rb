@@ -25,6 +25,7 @@ dependency 'ruby'
 dependency 'sqlite'
 dependency 'libwebp'
 dependency 'zip'
+dependency 'pcre'
 
 build do
 
