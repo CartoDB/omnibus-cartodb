@@ -11,6 +11,6 @@ dependency 'cartodb-postgresql'
 dependency 'redis'
 
 build do
-  npm = ['npm', 'install', '-g', '--strict-ssl=false', '-d'].join(' ')
-  command npm, env: with_standard_compiler_flags(with_embedded_path)
+  command 'npm install -g -d', env: with_standard_compiler_flags(with_embedded_path)
+  command 'npm test', env: with_embedded_path
 end
