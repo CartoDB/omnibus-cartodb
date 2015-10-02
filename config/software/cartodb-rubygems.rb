@@ -24,11 +24,9 @@ build do
   bundle = ["bundle",
             "pack",
             "--all",
-            "--all-platforms"
-            "--retry 4",
+            "--all-platforms",
             "--path #{install_dir}/embedded/gems",
-            "--gemfile #{project_dir}/Gemfile",
-            "-j#{workers}"
+            "--gemfile #{project_dir}/Gemfile"
             ].join(' ')
   command bundle, cwd: build_dir, env: env.merge({
     "BUNDLE_BUILD__CHARLOCK_HOLMES" => "--with-pkg-config=#{install_dir}/embedded/lib/pkgconfig/",
