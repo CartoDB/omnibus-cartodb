@@ -12,7 +12,5 @@ dependency 'protobuf'
 dependency 'pango'
 
 build do
-  patch source: "package.json.patch"
-  npm = ['npm', 'install', '--build-from-source', '--no-shrinkwrap', '--strict-ssl=false', '-g', '-dd'].join(' ')
-  command npm, env: with_standard_compiler_flags(with_embedded_path)
+  command 'npm install --build-from-source -g -d', env: with_standard_compiler_flags(with_embedded_path)
 end
