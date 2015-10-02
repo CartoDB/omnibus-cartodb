@@ -11,7 +11,7 @@ build do
 #          " --build #{build_dir}" \
 #          " --requirement #{install_dir}/embedded/cartodb/python_requirements.txt", cwd: staging_dir, env: env
   command "#{install_dir}/embedded/bin/pip install" \
-          " --build #{project_dir}" \
+          " --build #{build_dir}/#{name}" \
           " chardet==2.3.0" \
           " argparse==1.2.1" \
           " brewery==0.6" \
