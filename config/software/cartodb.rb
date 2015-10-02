@@ -19,5 +19,5 @@ build do
   
   # hack to pass health check
   # todo: build phantomjs from source and install to PATH. `npm install` will use it.
-  delete staging_dir, '**/phantomjs'
+  delete "#{staging_dir}/**/phantomjs"
 end
