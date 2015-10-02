@@ -18,6 +18,6 @@ build do
           " redis==2.4.9" \
           " python-varnish==0.1.2" \
           " csvkit==0.9.0" \
-          " openpyxl==2.1.3" \ 
+          " openpyxl==2.1.3" \
           " gdal==2.0.1", cwd: staging_dir, env: env
 end
