@@ -18,7 +18,7 @@ dependency "cartodb-rubygems"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  command 'npm install -g grunt', env: env
+  command 'npm install -g grunt-cli', env: env
   
   # install development and test dependecies for grunt work...
   command 'npm install -d', env: env
