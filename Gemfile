@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source ENV['OMNIBUS_CARTODB_GEMSOURCE'] || 'https://rubygems.org'
 
 gemspec
 
