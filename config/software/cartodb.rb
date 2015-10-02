@@ -12,7 +12,6 @@ source git: "https://github.com/bloomberg/cartodb",
 
 relative_path "#{name}-#{version}"
 
-dependency "cartodb-node-modules"
 dependency "cartodb-rubygems"
 
 build do
