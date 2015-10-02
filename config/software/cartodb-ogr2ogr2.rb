@@ -62,5 +62,5 @@ build do
 
   make "-j #{workers}", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
   
-  sync "#{project_dir}/gdal/apps/ogr2ogr", "#{install_dir}/embedded/bin/ogr2ogr2"
+  copy "#{project_dir}/gdal/apps/ogr2ogr", "#{install_dir}/embedded/bin/ogr2ogr2"
 end
