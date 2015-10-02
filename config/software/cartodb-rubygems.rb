@@ -25,7 +25,10 @@ build do
             "install",
             "--path=#{install_dir}/embedded/gem",
             "--binstubs=#{install_dir}/embedded/bin",
-            "--deployment"
+            "--deployment",
+            "--disable-shared-gems",
+            "--retry 4",
+            "-j#{workers}"
             ].join(' ')
   command bundle, env: env.merge({
     "BUNDLE_BUILD__CHARLOCK_HOLMES" => "--with-pkg-config=#{install_dir}/embedded/lib/pkgconfig/",
