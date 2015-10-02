@@ -6,7 +6,7 @@ dependency "pip"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   command "#{install_dir}/embedded/bin/pip install" \
-          " --build #{project_dir}" \
+          " --build #{build_dir}" \
           " chardet==2.3.0" \
           " argparse==1.2.1" \
           " brewery==0.6" \
