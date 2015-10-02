@@ -1,4 +1,4 @@
-name 'grunt-clit'
+name 'grunt-cli'
 
 relative_path "#{name}"
 
@@ -10,7 +10,7 @@ build do
   npm = ['npm',
          'install',
          '-g',
-         '-dd',
+         '-d',
          'grunt-cli'
          ].join(' ')
   command npm, env: env
