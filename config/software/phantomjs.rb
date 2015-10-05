@@ -19,5 +19,5 @@ dependency 'bison'
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./build.sh --confirm --jobs #{workers} --qt-config '-- -I #{install_dir}/embedded/include -L #{install_dir}/embedded/lib'", env: env
+  command "./build.sh --confirm --jobs #{workers} --qt-config '-- -release -static -pkg-config -I #{install_dir}/embedded/include -L #{install_dir}/embedded/lib'", env: env
 end
