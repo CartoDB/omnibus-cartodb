@@ -1,5 +1,5 @@
 name 'phantomjs'
-default_version '1.9.8'
+default_version '2.0'
 
 source git: 'https://github.com/ariya/phantomjs'
 
@@ -19,6 +19,5 @@ dependency 'bison'
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./build.sh --confirm --jobs #{workers} --qt-config '-release -static -I #{install_dir}/embedded/include -L #{install_dir}/embedded/lib'", env: env
-  copy "#{project_dir}/bin/phantomjs", "#{install_dir}/embedded/bin/"
+  command "./build.sh --confirm --jobs #{workers} --qt-config '-- -release -static -pkg-config -I #{install_dir}/embedded/include -L #{install_dir}/embedded/lib'", env: env
 end
