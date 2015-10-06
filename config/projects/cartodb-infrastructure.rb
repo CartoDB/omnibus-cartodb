@@ -35,6 +35,7 @@ dependency "varnish-cache"
 
 dependency "ruby"
 dependency "bundler"
+dependency "nokogiri"
 dependency "ruby-saml-gem"
 dependency "unicorn"
 
