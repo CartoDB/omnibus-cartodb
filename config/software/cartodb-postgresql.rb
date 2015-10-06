@@ -1,6 +1,5 @@
 name 'cartodb-postgresql'
-# default_version '0.7.3'
-default_version 'cdb'
+default_version 'master'
 
 source git: "https://github.com/CartoDB/cartodb-postgresql.git"
 
