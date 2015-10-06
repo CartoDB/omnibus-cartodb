@@ -2,17 +2,18 @@ name 'cartodb-windshaft'
 default_version 'cdb'
 
 source git: "https://github.com/CartoDB/Windshaft-cartodb"
-relative_path "#{name}"
+relative_path "#{name}-#{version}"
 
-# depends on mapnik but node-mapnik b/c package.json depends on node-mapnik from "https://github.com/CartoDB/node-mapnik/tarball/1.4.15-cdb1"
 dependency 'libXrender'
+# depends on mapnik not node-mapnik b/c windshaft-cartodb/package.json already pulls node-mapnik
 dependency 'cartodb-mapnik'
 dependency 'nodejs'
 dependency 'protobuf'
 dependency 'pango'
 
 build do
-  patch source: "package.json.patch"
-  npm = ['npm', 'install', '--build-from-source', '--no-shrinkwrap', '--strict-ssl=false', '-g', '-dd'].join(' ')
-  command npm, env: with_standard_compiler_flags(with_embedded_path)
+  # build from source to link node against embedded mapnik.
+  command 'npm install --build-from-source -d', env: with_standard_compiler_flags(with_embedded_path)
+  sync "#{project_dir}", "#{install_dir}/embedded/#{name}-#{version}", exclude: ['**/.git']
+  link "#{install_dir}/embedded/#{name}-#{version}", "#{install_dir}/embedded/#{name}"
 end

@@ -52,7 +52,7 @@ build do
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --with-python" \
-          " --with-uuid=ossp" \
+          " --with-ossp-uuid" \
           " --with-libedit-preferred" \
           " --with-libxml" \
           " --with-openssl --with-includes=#{install_dir}/embedded/include" \

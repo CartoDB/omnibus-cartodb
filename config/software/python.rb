@@ -16,16 +16,18 @@ relative_path "Python-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path).merge({
-       "CFLAGS" => "-I#{install_dir}/embedded/include -O3 -g -pipe",
-       # need to pass CPPFLAGS for setup.py pick sqlite3.h in non standard inc path
-       # https://github.com/chef/omnibus/issues/415
-       "CPPFLAGS" => "-I#{install_dir}/embedded/include",
-	   "LDFLAGS" => "-Wl,-rpath,#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib"
-      })
+          "CFLAGS" => "-I#{install_dir}/embedded/include -O3 -g -pipe",
+          # need to pass CPPFLAGS for setup.py pick sqlite3.h in non standard inc path
+          # https://github.com/chef/omnibus/issues/415
+          "CPPFLAGS" => "-I#{install_dir}/embedded/include",
+	  "LDFLAGS" => "-Wl,-rpath,#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib"
+        })
 
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --enable-shared" \
+          " --with-system-expat" \
+          " --with-system-ffi" \
           " --with-dbmliborder=gdbm", env: env
 
   make env: env
