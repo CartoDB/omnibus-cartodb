@@ -18,5 +18,4 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "cartodb-gdal"
-dependency "cartodb-gdalautotest"
 dependency "version-manifest"
