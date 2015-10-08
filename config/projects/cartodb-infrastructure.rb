@@ -23,7 +23,7 @@ exclude "**/bundler/git"
 dependency "preparation"
 
 # layer 0
-dependency 'cartodb-layer0-devel.rb'
+dependency 'cartodb-layer0-devel'
 
 # language tool-chains
 dependency 'ruby'
