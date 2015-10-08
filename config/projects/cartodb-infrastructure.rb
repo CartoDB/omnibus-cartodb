@@ -22,8 +22,6 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 
-runtime_dependency "cartodb-layer0"
-
 # language tool-chains
 dependency 'ruby'
 dependency "bundler"
