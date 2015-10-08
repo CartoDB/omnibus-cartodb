@@ -1,16 +1,16 @@
-name "ogr2ogr2"
+name "cartodb-ogr2ogr2"
 maintainer "CartoDB team"
 homepage "https://github.com/CartoDB/omnibus-cartodb/blob/master/README.md"
 
 build_version Omnibus::BuildVersion.semver
 build_iteration 1
 
-MYUSERNAME = ENV['LOGNAME']
+package_user   ENV['OMNIBUS_PACKAGE_USER']  || ENV['LOGNAME'] || 'root'
+package_group  ENV['OMNIBUS_PACKAGE_GROUP'] || ENV['OMNIBUS_PACKAGE_USER'] || ENV['LOGNAME'] || 'root'
+package_root = ENV['OMNIBUS_PACKAGE_ROOT']  || '/opt'
 
-package_user  "#{MYUSERNAME}"
-package_group "#{MYUSERNAME}"
+build_iteration ENV['OMNIBUS_PROJECT_BUILD_ITERATION'] || 1
 
-package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/opt'
 install_dir "#{package_root}/#{name}"
 
 exclude "**/.git"
