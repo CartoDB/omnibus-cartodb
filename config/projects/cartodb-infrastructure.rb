@@ -36,7 +36,7 @@ dependency 'protobuf'
 # data storage and retrieval
 dependency 'sqlite'
 dependency 'redis'
-dependency 'postgresql'
+dependency 'postgis'
 dependency 'varnish-cache'
 
 # cartodb customized applications
