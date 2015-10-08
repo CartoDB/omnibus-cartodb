@@ -24,7 +24,7 @@ dependency "preparation"
 
 # language tool-chains
 dependency 'ruby'
-dependency "bundler"
+dependency 'bundler'
 dependency 'python'
 dependency 'pip'
 dependency 'python-nose'
@@ -35,13 +35,16 @@ dependency 'protobuf'
 
 # data storage and retrieval
 dependency 'sqlite'
-dependency "redis"
+dependency 'redis'
 dependency 'postgresql'
-dependency "varnish-cache"
+dependency 'varnish-cache'
+
+# cartodb customized applications
+dependency 'cartodb-gdal'
+dependency 'cartodb-mapnik'
 
 # 3rd party applications
 dependency 'imagemagick'
 dependency 'unicorn'
-dependency 'gdal'
 
 dependency "version-manifest"
