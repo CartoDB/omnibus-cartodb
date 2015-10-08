@@ -14,6 +14,9 @@ package_group "#{MYUSERNAME}"
 package_root = ENV['OMNIBUS_PACKAGE_ROOT'] || '/opt'
 install_dir "#{package_root}/#{name}"
 
+# .rpm and .deb are already compressed so the below compress doesnt help much. 
+# compress :tgz
+
 exclude "**/.git"
 exclude "**/bundler/git"
 
