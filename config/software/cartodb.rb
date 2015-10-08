@@ -1,6 +1,5 @@
 name 'cartodb'
 
-dependency 'grunt-cli'
 dependency "cartodb-npm"
 
 build do
