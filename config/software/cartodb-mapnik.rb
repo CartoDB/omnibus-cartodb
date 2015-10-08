@@ -1,12 +1,9 @@
 name 'cartodb-mapnik'
-# default_version 'v3.0.0-rc1'
-# default_version 'v2.2.0'
 default_version '2.3.x'   # required for static maps export
 
-# source git: 'https://github.com/mapnik/mapnik.git'
 source git: 'https://github.com/cartodb/mapnik.git'
 
-relative_path 'mapnik'
+relative_path "#{name}-#{version}"
 
 dependency "zlib"
 dependency "curl"
@@ -43,6 +40,6 @@ build do
   end
 
   make "-j #{workers}", env: env
-# make 'test', env: env.merge('LC_ALL' => 'en_US.UTF-8')
+  make 'test', env: env.merge('LC_ALL' => 'en_US.UTF-8')
   make 'install'
 end
