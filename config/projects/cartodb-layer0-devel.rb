@@ -4,7 +4,7 @@
 # Its raison d'être is to ease portability of other omnibus packages because cross compiling them can be very time consuming.
 # That said, any software here must deployable by alternative tools (e.g.: MacOS brew). 
 #
-name "cartodb-layer0"
+name "cartodb-layer0-devel"
 maintainer "CartoDB team"
 homepage "https://github.com/CartoDB/omnibus-cartodb#cartodb-compontents-layers"
 
