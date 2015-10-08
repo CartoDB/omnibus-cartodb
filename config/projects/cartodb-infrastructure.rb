@@ -22,14 +22,19 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 
+# layer 0
+dependency 'cartodb-layer0-devel.rb'
+
 # language tool-chains
 dependency 'ruby'
 dependency 'bundler'
+dependency 'nokogiri'
 dependency 'python'
 dependency 'pip'
 dependency 'python-nose'
 dependency 'nodejs'
 dependency 'phantomjs'
+dependency 'grunt-cli'
 dependency 'perl'
 dependency 'protobuf'
 
@@ -46,5 +51,6 @@ dependency 'cartodb-mapnik'
 # 3rd party applications
 dependency 'imagemagick'
 dependency 'unicorn'
+dependency 'zip'
 
 dependency "version-manifest"
