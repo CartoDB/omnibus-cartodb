@@ -42,5 +42,6 @@ dependency "varnish-cache"
 # 3rd party applications
 dependency 'imagemagick'
 dependency 'unicorn'
+dependency 'gdal'
 
 dependency "version-manifest"
