@@ -1,5 +1,5 @@
 # see https://github.com/chef/omnibus/blob/master/lib/omnibus/project.rb for more detailed class doc
-name "cartodb"
+name "cartodb-postgis"
 maintainer "CartoDB team"
 homepage "https://github.com/CartoDB/omnibus-cartodb/blob/master/README.md"
 
@@ -14,23 +14,9 @@ build_iteration ENV['OMNIBUS_PROJECT_BUILD_ITERATION'] || 1
 
 install_dir "#{package_root}/#{name}"
 
-# .rpm and .deb are already compressed so the below compress doesnt help much. 
-# compress :tgz
-
 exclude "**/.git"
 exclude "**/bundler/git"
 
 dependency "preparation"
-dependency "cacerts"
-dependency "cartodb-windshaft"
-dependency "cartodb-sql-api"
-dependency "unicorn"
-dependency "imagemagick"
-dependency "redis"
-dependency "unp"
-dependency "varnish-cache"
-dependency "forever"
-dependency "ruby-saml-gem"
-dependency "pg-gem"
-dependency "cartodb"
+dependency "cartodb-postgis"
 dependency "version-manifest"
