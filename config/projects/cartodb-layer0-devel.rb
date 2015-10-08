@@ -47,7 +47,7 @@ dependency "zlib"
 # first layer - transitive deps to zero layer
 dependency "autoconf"
 dependency "libpng"
-dependency "lixml2"
+dependency "libxml2"
 dependency "logrotate"
 dependency "pkg-config"
 
