@@ -5,11 +5,6 @@ source git: "https://github.com/CartoDB/#{name}"
 
 relative_path "#{name}-#{version}"
 
-dependency 'cartodb-gdal'
-dependency 'nodejs'
-dependency 'cartodb-postgresql'
-dependency 'redis'
-
 build do
   command 'npm install -d', env: with_standard_compiler_flags(with_embedded_path)
   sync "#{project_dir}", "#{install_dir}/embedded/#{name}-#{version}", exclude: ['**/.git']
