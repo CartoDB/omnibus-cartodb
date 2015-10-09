@@ -24,7 +24,7 @@ dependency "python"
 dependency "python-nose"
 dependency "ruby"
 dependency "cartodb-gdal"
-dependency "postgis"
+dependency "cartodb-postgis"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
