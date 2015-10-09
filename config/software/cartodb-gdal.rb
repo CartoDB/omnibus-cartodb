@@ -1,5 +1,5 @@
 name 'cartodb-gdal'
-default_version '1.11'
+default_version '1.11.1'
 
 source git: "https://github.com/CartoDB/gdal.git"
 
