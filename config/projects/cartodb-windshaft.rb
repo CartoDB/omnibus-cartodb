@@ -21,5 +21,5 @@ dependency "preparation"
 dependency "cartodb-infrastructure"
 dependency 'libXrender'
 dependency 'pango'
-dependency "windshaft-cartodb"
+dependency "cartodb-windshaft"
 dependency "version-manifest"
