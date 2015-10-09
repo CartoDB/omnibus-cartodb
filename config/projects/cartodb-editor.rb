@@ -22,6 +22,7 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "cartodb-infrastructure"
+dependency "cartodb-postgis"
 dependency "unp"
 dependency "forever"
 dependency "ruby-saml-gem"
