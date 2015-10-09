@@ -1,4 +1,4 @@
-name 'cartodb'
+name 'cartodb-editor'
 
 dependency "cartodb-npm"
 
