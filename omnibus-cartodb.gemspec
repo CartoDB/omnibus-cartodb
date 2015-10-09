@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
-  s.name        = "omnibus-cartodb-infrastructure"
+  s.name        = "omnibus-cartodb"
   s.version     = "1.0.0"
   s.authors     = ['Bloomberg L.P.']
   s.summary     = %q{Omnibus project for all core CartoDB infrastructure}
