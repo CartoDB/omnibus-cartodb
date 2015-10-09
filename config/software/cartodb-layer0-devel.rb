@@ -27,12 +27,10 @@ dependency "xproto"
 dependency "zlib"
 
 # first layer - transitive deps to zero layer
-dependency "autoconf"
 dependency "libpng"
 dependency "libxml2"
 dependency "logrotate"
 dependency "pkg-config"
 
 # second layer
-dependency "automake"
 dependency "libxslt"
