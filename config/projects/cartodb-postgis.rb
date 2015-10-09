@@ -19,4 +19,5 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "cartodb-postgis"
+dependency "pg_schema_triggers"
 dependency "version-manifest"
