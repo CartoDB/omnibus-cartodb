@@ -15,12 +15,12 @@ dependency 'protobuf'
 # data storage and retrieval
 dependency 'sqlite'
 dependency 'redis'
-dependency 'postgis'
 dependency 'varnish-cache'
 
 # cartodb customized applications
 dependency 'cartodb-gdal'
 dependency 'cartodb-mapnik'
+dependency 'cartodb-postgis'
 
 # 3rd party applications
 dependency 'imagemagick'
