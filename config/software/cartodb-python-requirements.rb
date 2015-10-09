@@ -1,6 +1,5 @@
 name "cartodb-python-requirements"
 
-dependency "pip"
 dependency "cartodb-rubygems"
 
 build do

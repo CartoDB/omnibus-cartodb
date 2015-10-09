@@ -40,6 +40,6 @@ build do
   end
 
   make "-j #{workers}", env: env
-  make 'test', env: env.merge('LC_ALL' => 'en_US.UTF-8')
+  #make 'test', env: env.merge('LC_ALL' => 'en_US.UTF-8')
   make 'install'
 end
