@@ -1,10 +1,10 @@
 name 'cartodb-postgis'
 default_version '2.1.7'
 
-source url: "http://download.osgeo.org/postgis/source/#{name}-#{version}.tar.gz",
+source url: "http://download.osgeo.org/postgis/source/postgis-#{version}.tar.gz",
        md5: 'f35307c201caf04e7028f95b649cf6e7'
 
-relative_path "#{name}-#{version}"
+relative_path "postgis-#{version}"
 
 dependency 'postgresql'
 dependency 'cartodb-gdal'
