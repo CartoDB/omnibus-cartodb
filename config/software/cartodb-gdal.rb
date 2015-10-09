@@ -34,6 +34,7 @@ build do
   configure = 
      ['./configure',
          "--prefix=#{install_dir}/embedded",
+         "--without-libtool",
          "--enable-option-checking",
          "--with-curl=#{install_dir}/embedded/bin",
          "--with-expat=#{install_dir}/embedded",
