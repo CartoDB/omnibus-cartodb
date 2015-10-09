@@ -68,5 +68,5 @@ build do
   # build test binary and run 
   make "-j #{workers} all", cwd: "#{project_dir}/gdal/apps", env: with_standard_compiler_flags(with_embedded_path)
   copy "#{project_dir}/gdal/apps/test_ogrsf", "#{install_dir}/embedded/bin/"
-  command './run_all.py', cwd: "#{project_dir}/autotest", env: with_embedded_path
+  command './run_all.py alg', cwd: "#{project_dir}/autotest", env: with_embedded_path
 end
