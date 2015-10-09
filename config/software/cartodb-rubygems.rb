@@ -17,7 +17,6 @@ build do
             "--path=#{install_dir}/embedded/gem",
             "--binstubs=#{install_dir}/embedded/bin",
             "--deployment",
-            "--disable-shared-gems",
             "--retry 4",
             "-j#{workers}"
             ].join(' ')
