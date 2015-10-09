@@ -18,5 +18,8 @@ exclude "**/.git"
 exclude "**/bundler/git"
 
 dependency "preparation"
+dependency "cartodb-infrastructure"
+dependency 'libXrender'
+dependency 'pango'
 dependency "windshaft-cartodb"
 dependency "version-manifest"
