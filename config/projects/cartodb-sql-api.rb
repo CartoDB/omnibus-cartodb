@@ -18,5 +18,6 @@ exclude "**/.git"
 exclude "**/bundler/git"
 
 dependency "preparation"
+dependency "cartodb-infrastructure"
 dependency "cartodb-sql-api"
 dependency "version-manifest"
