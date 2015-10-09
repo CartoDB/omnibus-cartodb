@@ -28,7 +28,7 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   configure_command = "./configure" \
-                      " --prefix=#{install_dir}/embedded"
+                      " --prefix=#{install_dir}/embedded --enable-extra-encodings --enable-relocatable"
   if aix?
     patch_env = env.dup
     patch_env['PATH'] = "/opt/freeware/bin:#{env['PATH']}"
