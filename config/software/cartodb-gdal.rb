@@ -61,7 +61,7 @@ build do
   # we have to pass with_embedded_path because geos-config, xml2-config, curl-config are not being found otherwise.
   command configure, cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
 
-  make "-j #{workers}", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
+  make "-j #{workers} all", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
   make 'install', cwd: "#{project_dir}/gdal"
   
   command './run_all.py', cwd: "#{project_dir}/autotest", env: with_embedded_path
