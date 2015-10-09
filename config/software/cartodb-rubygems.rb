@@ -13,9 +13,13 @@ build do
   sync "#{project_dir}",staging_dir, exclude: ['**/.git']
   
   bundle = ["bundle",
-            "pack",
-            "--all",
-            "--all-platforms"
+            "install",
+            "--path=#{install_dir}/embedded/gem",
+            "--binstubs=#{install_dir}/embedded/bin",
+            "--deployment",
+            "--disable-shared-gems",
+            "--retry 4",
+            "-j#{workers}"
             ].join(' ')
   command bundle, cwd: staging_dir, env: env.merge({
     "BUNDLE_BUILD__CHARLOCK_HOLMES" => "--with-pkg-config=#{install_dir}/embedded/lib/pkgconfig/",
