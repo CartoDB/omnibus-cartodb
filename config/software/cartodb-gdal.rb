@@ -62,7 +62,7 @@ build do
   command configure, cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
 
   make "-j #{workers}", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
-  make 'devinstall', cwd: "#{project_dir}/gdal"
+  make 'install', cwd: "#{project_dir}/gdal"
   
   # build test binary and run 
   make "-j #{workers}", cwd: "#{project_dir}/gdal/apps", env: with_standard_compiler_flags(with_embedded_path)
