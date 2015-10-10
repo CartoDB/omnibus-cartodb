@@ -9,6 +9,8 @@ relative_path "#{name}-#{version}"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   
+  make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
+    
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
   sync "#{project_dir}",staging_dir, exclude: ['**/.git']
   
