@@ -15,11 +15,10 @@ build do
   configure = ['./configure',
                "--prefix=#{install_dir}/embedded",
                "--with-raster",
-               "--with-topology",
-               "--without-interrupt-tests"
+               "--with-topology"
               ].join(' ')
   command configure, env: env
 
-  make "-j #{workers}", env: env
+  make, env: env
   make 'install'
 end
