@@ -1,5 +1,5 @@
 name 'geos'
-default_version '3.4.2'
+default_version '3.5.0'
 
 source url: "http://download.osgeo.org/#{name}/#{name}-#{version}.tar.bz2",
        md5: 'fc5df2d926eb7e67f988a43a92683bae'
