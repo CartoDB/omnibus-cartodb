@@ -1,7 +1,8 @@
 name 'cartodb-gdal'
 default_version '2.0.1'
 
-source git: "http://download.osgeo.org/gdal/2.0.1/gdal-2.0.1.tar.gz"
+source url: "http://download.osgeo.org/gdal/2.0.1/gdal-2.0.1.tar.gz",
+       md5: "bdded121a62dae246d8500b42d87145b"
 
 relative_path "gdal-#{version}"
 
