@@ -19,6 +19,6 @@ build do
               ].join(' ')
   command configure, env: env
 
-  make, env: env
+  make '-j 1', env: env
   make 'install'
 end
