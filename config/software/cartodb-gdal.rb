@@ -1,9 +1,9 @@
-name 'cartodb-ogr2ogr2'
-default_version 'ogr2ogr2'
+name 'cartodb-gdal'
+default_version '2.0.1'
 
-source git: "https://github.com/CartoDB/gdal.git"
+source git: "http://download.osgeo.org/gdal/2.0.1/gdal-2.0.1.tar.gz"
 
-relative_path "#{name}-#{version}"
+relative_path "gdal-#{version}"
 
 dependency 'libiconv'
 dependency 'zlib'
