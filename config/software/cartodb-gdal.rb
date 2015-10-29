@@ -1,5 +1,5 @@
-name 'cartodb-gdal'
-default_version '1.11.1'
+name 'cartodb-ogr2ogr2'
+default_version 'ogr2ogr2'
 
 source git: "https://github.com/CartoDB/gdal.git"
 
@@ -34,7 +34,6 @@ build do
   configure = 
      ['./configure',
          "--prefix=#{install_dir}/embedded",
-         "--without-libtool",
          "--enable-option-checking",
          "--with-curl=#{install_dir}/embedded/bin",
          "--with-expat=#{install_dir}/embedded",
@@ -61,12 +60,6 @@ build do
   # we have to pass with_standard_compiler_flags because configure is not setting the proper flags for libiconv.
   # we have to pass with_embedded_path because geos-config, xml2-config, curl-config are not being found otherwise.
   command configure, cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
-
   make "-j #{workers}", cwd: "#{project_dir}/gdal", env: with_standard_compiler_flags(with_embedded_path)
   make 'install', cwd: "#{project_dir}/gdal"
-  
-  # build test binary and run 
-  make "-j #{workers} all", cwd: "#{project_dir}/gdal/apps", env: with_standard_compiler_flags(with_embedded_path)
-  copy "#{project_dir}/gdal/apps/test_ogrsf", "#{install_dir}/embedded/bin/"
-  command './run_all.py alg', cwd: "#{project_dir}/autotest", env: with_embedded_path
 end
