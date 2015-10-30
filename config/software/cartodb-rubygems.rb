@@ -1,5 +1,5 @@
 name 'cartodb-rubygems'
-default_version 'blp_sso'
+default_version 'development'
 
 source git: "https://github.com/bloomberg/cartodb",
        submodules: true
