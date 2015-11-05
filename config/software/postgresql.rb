@@ -41,7 +41,7 @@ version "9.3.4" do
 end
 
 version "9.3.5" do
-  source md5: "d0a41f54c377b2d2fab4a003b0dac762"
+  source md5: "5059857c7d7e6ad83b6d55893a121b59"
 end
 
 version "9.4.4" do
