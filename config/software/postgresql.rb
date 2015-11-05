@@ -15,7 +15,8 @@
 #
 
 name "postgresql"
-default_version "9.5beta1"
+#default_version "9.5beta1"
+default_version "9.3.5"
 
 dependency "zlib"
 dependency "openssl"
@@ -24,6 +25,8 @@ dependency "libedit"
 dependency "ncurses"
 dependency "python"
 dependency "libxml2"
+
+ossp_uuid = " --with-ossp-uuid"
 
 version "9.1.9" do
   source md5: "6b5ea53dde48fcd79acfc8c196b83535"
@@ -37,8 +40,14 @@ version "9.3.4" do
   source md5: "d0a41f54c377b2d2fab4a003b0dac762"
 end
 
+version "9.3.5" do
+  source md5: "d0a41f54c377b2d2fab4a003b0dac762"
+end
+
 version "9.4.4" do
   source md5: "1fe952c44ed26d7e6a335cf991a9c1c6"
+  # Config options have changed with 9.4.x
+  ossp_uuid = " --with-uuid=ossp"
 end
 
 version "9.5beta1" do
@@ -55,7 +64,7 @@ build do
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --with-python" \
-          " --with-ossp-uuid" \
+          "#{ossp_uuid}" \
           " --with-libedit-preferred" \
           " --with-libxml" \
           " --with-openssl --with-includes=#{install_dir}/embedded/include" \
