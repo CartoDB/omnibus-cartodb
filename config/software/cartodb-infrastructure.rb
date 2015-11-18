@@ -12,15 +12,9 @@ dependency 'grunt-cli'
 dependency 'perl'
 dependency 'protobuf'
 
-# data storage and retrieval
-dependency 'sqlite'
-dependency 'redis'
-dependency 'varnish-cache'
-
 # cartodb customized applications
 dependency 'cartodb-gdal'
 dependency 'cartodb-postgis'
-dependency 'cartodb-mapnik'
 
 # 3rd party applications
 dependency 'imagemagick'
