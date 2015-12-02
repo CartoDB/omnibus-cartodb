@@ -20,7 +20,7 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
-override :ruby, version: "2.0.0"
+override :ruby, version: "2.0.0-p645"
 
 dependency "preparation"
 dependency 'cartodb-layer0-devel'
