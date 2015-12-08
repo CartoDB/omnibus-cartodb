@@ -12,7 +12,7 @@ build do
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
-  #sync "#{project_dir}",staging_dir, exclude: ['**/.git']
+  sync "#{project_dir}",staging_dir, exclude: ['**/.git']
   
   bundle = ["bundle",
             "install",
