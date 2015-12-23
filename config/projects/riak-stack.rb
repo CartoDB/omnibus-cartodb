@@ -1,6 +1,6 @@
 name "riak-stack"
 maintainer "Cartodb team"
-homepage "https://bbgithub.dev.bloomberg.com/datavis-cartodb/cartodb-docs/blob/master/playbooks/Riak.md"
+homepage "http://docs.basho.com/riak/latest/"
 
 build_version Omnibus::BuildVersion.semver
 
