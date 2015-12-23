@@ -27,5 +27,7 @@ dependency "pg_schema_triggers"
 dependency "cartodb-sql-api"
 dependency 'libXrender'
 dependency 'pango'
+dependency 'repmgr'
+dependency 'pgbouncer'
 dependency "cartodb-windshaft"
 dependency "version-manifest"
