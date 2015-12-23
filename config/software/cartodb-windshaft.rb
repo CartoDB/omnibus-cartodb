@@ -1,6 +1,8 @@
 name 'cartodb-windshaft'
 default_version 'cdb'
 
+dependency 'cartodb-mapnik'
+
 source git: "https://github.com/CartoDB/Windshaft-cartodb"
 relative_path "#{name}-#{version}"
 

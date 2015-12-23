@@ -9,6 +9,7 @@ dependency 'libpng'
 dependency 'libjpeg'
 dependency 'libtiff'
 dependency 'giflib'
+dependency 'libtool'
 
 build do
 

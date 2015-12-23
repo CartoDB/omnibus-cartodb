@@ -1,8 +1,8 @@
 name "libevent"
-default_version "2.0.21-stable"
+default_version "2.0.22-stable"
 
-version "2.0.21-stable" do
-  source md5: "b2405cc9ebf264aa47ff615d9de527a2"
+version "2.0.22-stable" do
+  source md5: "c4c56f986aa985677ca1db89630a2e11"
 end
 
 dependency "openssl"
