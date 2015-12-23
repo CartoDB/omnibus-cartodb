@@ -21,7 +21,7 @@ build do
     "SNAPPY_CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include/ -I#{install_dir}/embedded/erlang/include/",
   }
   
-  command "make rel" , :env => build_env 
+  make "rel" , :env => build_env 
   command "cp -r  rel/riak/ #{install_dir}/", :env => build_env
 
 end
