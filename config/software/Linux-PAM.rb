@@ -2,7 +2,7 @@ name "Linux-PAM"
 default_version "1.2.0"
 
 source url: "http://www.linux-pam.org/library/Linux-PAM-#{version}.tar.gz",
-       md5: "38f25b58771afeacf6c1bf251d104e71"
+  md5: "38f25b58771afeacf6c1bf251d104e71"
 
 relative_path "#{name}-#{version}"
 
