@@ -22,6 +22,6 @@ build do
   }
   
   make "rel" , :env => build_env 
-  command "cp -r  rel/riak/ #{install_dir}/", :env => build_env
+  copy "rel/riak/ #{install_dir}/", :env => build_env
 
 end
