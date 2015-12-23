@@ -8,9 +8,8 @@ source :url => "http://s3.amazonaws.com/downloads.basho.com/stanchion/2.1/2.1.0/
 
 relative_path "stanchion-#{version}"
 
-build do
-  build_env = with_standard_compiler_flags(with_embedded_path)
-
-  make "rel", :env => build_env
-  command "#{install_dir}/embedded/bin/rsync -a rel/stanchion/ #{install_dir}/", :env => build_env
+build do 
+       build_env = with_standard_compiler_flags(with_embedded_path)
+       make "rel", :env => build_env
+       command "#{install_dir}/embedded/bin/rsync -a rel/stanchion/ #{install_dir}/", :env => build_env
 end
