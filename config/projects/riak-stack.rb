@@ -1,5 +1,5 @@
 name "riak-stack"
-maintainer "Cartodb team"
+maintainer "Basho team"
 homepage "http://docs.basho.com/riak/latest/"
 
 build_version Omnibus::BuildVersion.semver
