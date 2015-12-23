@@ -9,14 +9,8 @@ source :url => "http://s3.amazonaws.com/downloads.basho.com/stanchion/2.1/2.1.0/
 relative_path "stanchion-#{version}"
 
 build do
-  build_env = {
-    "PATH" => "#{install_dir}/embedded/bin:#{ENV['PATH']}",
-    "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -I#{install_dir}/embedded/erlang/include",
-    "LD_LIBRARY_PATH" => "#{install_dir}/embedded/lib",
-    "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include/ -I#{install_dir}/embedded/erlang/include/",
-    "CXXFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include/ -I#{install_dir}/embedded/erlang/include/",
-    "SNAPPY_CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include/ -I#{install_dir}/embedded/erlang/include/",
-  }
-  command "make rel", :env => build_env
-  command "cp -r  rel/stanchion/ #{install_dir}/", :env => build_env
+  build_env = with_standard_compiler_flags(with_embedded_path)
+
+  make "rel", :env => build_env
+  command "#{install_dir}/embedded/bin/rsync -a rel/stanchion/ #{install_dir}/", :env => build_env
 end
