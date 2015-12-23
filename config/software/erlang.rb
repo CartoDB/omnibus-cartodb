@@ -56,15 +56,15 @@ build do
   env = with_standard_compiler_flags(with_embedded_path).merge(
     # WARNING!
     "CFLAGS"  => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include",
-     "LDFLAGS" => "-Wl,-rpath #{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include",
-     )
-     env.delete('CPPFLAGS')
+    "LDFLAGS" => "-Wl,-rpath #{install_dir}/embedded/lib -L#{install_dir}/embedded/lib -I#{install_dir}/embedded/erlang/include",
+    )
+    env.delete('CPPFLAGS')
 
   mkdir "#{install_dir}/embedded/erlang/include"
   %w(ncurses openssl zlib.h zconf.h).each do |name|
     link "#{install_dir}/embedded/include/#{name}", "#{install_dir}/embedded/erlang/include/#{name}"
   end
-   command "./configure" \
+  command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --enable-threads" \
           " --enable-smp-support" \
