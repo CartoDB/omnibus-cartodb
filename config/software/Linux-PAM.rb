@@ -7,15 +7,14 @@ source url: "http://www.linux-pam.org/library/Linux-PAM-#{version}.tar.gz",
 relative_path "#{name}-#{version}"
 
 build do
-
-     env = with_standard_compiler_flags(with_embedded_path)
-     command( ["./configure" \
+  env = with_standard_compiler_flags(with_embedded_path)
+  command( ["./configure" \
             " --prefix=#{install_dir}/embedded",
             " --disable-selinux",
             " --disable-audit",
             " --enable-db=no",
             " --includedir=#{install_dir}/embedded/include/security"].join(" "), env: env)
      
-    make "-j #{workers}", env: env
-    make "install", env: env
+  make "-j #{workers}", env: env
+  make "install", env: env
 end
