@@ -61,7 +61,7 @@ build do
     env.delete('CPPFLAGS')
 
   mkdir "#{install_dir}/embedded/erlang/include"
-  %w(ncurses openssl zlib.h zconf.h).each do |name|
+  %w(ncurses.h openssl zlib.h zconf.h).each do |name|
     link "#{install_dir}/embedded/include/#{name}", "#{install_dir}/embedded/erlang/include/#{name}"
   end
   command "./configure" \
