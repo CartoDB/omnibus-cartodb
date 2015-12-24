@@ -63,6 +63,7 @@ build do
           " --enable-shared-zlib" \
           " --enable-hipe" \
           " --without-javac" \
+          " --without-termcap" \
           " --with-ssl=#{install_dir}/embedded" \
           " --disable-debug", env: env
 
