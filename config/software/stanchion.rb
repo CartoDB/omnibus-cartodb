@@ -11,5 +11,6 @@ relative_path "stanchion-#{version}"
 build do 
   build_env = with_standard_compiler_flags(with_embedded_path)
   make "rel", :env => build_env
-  command "#{install_dir}/embedded/bin/rsync -a rel/stanchion/ #{install_dir}/", :env => build_env
+  mkdir "#{install_dir}/stanchion"
+  command "#{install_dir}/embedded/bin/rsync -a rel/stanchion/ #{install_dir}/stanchion", :env => build_env
 end
