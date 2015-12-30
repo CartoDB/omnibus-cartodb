@@ -20,7 +20,6 @@ dependency 'libpng'
 dependency 'libtiff'
 dependency 'libxml2'
 dependency 'postgresql'
-override :postgresql, version: "9.4.5"
 dependency 'python'
 dependency 'ruby'
 dependency 'sqlite'
