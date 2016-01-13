@@ -23,10 +23,10 @@ dependency "libjpeg"
 dependency "libpng"
 
 # TODO: make sure that this is where we want to download libgd from
-source url: "https://bitbucket.org/libgd/gd-libgd/get/GD_2_0_33.tar.gz",
-       md5: "a028f1642586e611fa39c39175478721"
+source url: "https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.0.tar.gz",
+       md5: "20a8eeae51cef7d7850679b1e53ce2b5"
 
-relative_path "libgd-gd-libgd-486e81dea984/src"
+relative_path "libgd"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path).merge(
