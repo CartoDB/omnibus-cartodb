@@ -15,7 +15,7 @@
 #
 
 name "nagios-plugins"
-default_version "1.4.15"
+default_version "1.4.16"
 
 dependency "zlib"
 dependency "openssl"
@@ -23,7 +23,7 @@ dependency "postgresql"
 dependency "libiconv"
 
 # the url is the location of a redirect from sourceforge
-source url: "http://downloads.sourceforge.net/project/nagiosplug/nagiosplug/1.4.15/nagios-plugins-#{version}.tar.gz",
+source url: "http://downloads.sourceforge.net/project/nagiosplug/nagiosplug/#{version}/nagios-plugins-#{version}.tar.gz",
        md5: "56abd6ade8aa860b38c4ca4a6ac5ab0d"
 
 relative_path "nagios-plugins-#{version}"
