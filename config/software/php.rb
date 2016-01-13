@@ -23,6 +23,7 @@ dependency "libxslt"
 dependency "libxml2"
 dependency "libiconv"
 dependency "openssl"
+dependency "libXpm"
 dependency "gd"
 
 source url: "http://us.php.net/distributions/php-#{version}.tar.gz",
