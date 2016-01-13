@@ -42,6 +42,7 @@ build do
           " --with-libxml-dir=#{install_dir}/embedded" \
           " --with-iconv=#{install_dir}/embedded" \
           " --with-openssl-dir=#{install_dir}/embedded" \
+          " --with-png-dir=#{install_dir}/embedded" \
           " --with-gd=#{install_dir}/embedded" \
           " --enable-fpm" \
           " --with-fpm-user=opscode" \
