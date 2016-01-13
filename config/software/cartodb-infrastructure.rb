@@ -26,3 +26,7 @@ dependency 'cartodb-mapnik'
 dependency 'imagemagick'
 dependency 'unicorn'
 dependency 'zip'
+
+# monitoring
+dependency 'nagios'
+dependency 'nagios-plugins'
