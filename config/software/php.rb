@@ -15,7 +15,7 @@
 #
 
 name "php"
-default_version "5.3.10"
+default_version "5.5.31"
 
 dependency "zlib"
 dependency "pcre"
@@ -26,7 +26,7 @@ dependency "openssl"
 dependency "gd"
 
 source url: "http://us.php.net/distributions/php-#{version}.tar.gz",
-       md5: "2b3d2d0ff22175685978fb6a5cbcdc13"
+       md5: "360049884d844865aa563a5517287969"
 
 relative_path "php-#{version}"
 
