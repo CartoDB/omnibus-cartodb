@@ -37,9 +37,9 @@ build do
           " --with-command-user=opscode-nagios-cmd" \
           " --with-gd-lib=#{install_dir}/embedded/lib" \
           " --with-gd-inc=#{install_dir}/embedded/include" \
-          " --with-temp-dir=/var#{install_dir}/nagios/tmp" \
-          " --with-lockfile=/var#{install_dir}/nagios/lock" \
-          " --with-checkresult-dir=/var#{install_dir}/nagios/checkresult" \
+          " --with-temp-dir=#{install_dir}/var/nagios/tmp" \
+          " --with-lockfile=#{install_dir}/var/nagios/lock" \
+          " --with-checkresult-dir=#{install_dir}/var/nagios/checkresult" \
           " --with-mail=/usr/bin/mail", env: env
 
   # Do some hacky shit
