@@ -45,6 +45,7 @@ build do
           " --with-openssl-dir=#{install_dir}/embedded" \
           " --with-png-dir=#{install_dir}/embedded" \
           " --with-gd=#{install_dir}/embedded" \
+          " --with-xpm-dir=#{install_dir}/embedded" \
           " --enable-fpm" \
           " --with-fpm-user=opscode" \
           " --with-fpm-group=opscode", env: env
