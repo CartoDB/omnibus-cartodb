@@ -15,7 +15,7 @@
 #
 
 name "gd"
-default_version "2.0.33"
+default_version "2.1.0"
 
 dependency "libiconv"
 dependency "zlib"
@@ -26,7 +26,7 @@ dependency "libpng"
 source url: "https://bitbucket.org/libgd/gd-libgd/downloads/libgd-2.1.0.tar.gz",
        md5: "20a8eeae51cef7d7850679b1e53ce2b5"
 
-relative_path "libgd"
+relative_path "libgd-2.1.0"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path).merge(
