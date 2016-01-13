@@ -33,8 +33,6 @@ build do
     "LIBS" => "-liconv",
   )
 
-  patch source: 'gd-2.0.33-configure-libpng.patch'
-
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --with-libiconv-prefix=#{install_dir}/embedded" \
