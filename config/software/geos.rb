@@ -9,6 +9,8 @@ relative_path "#{name}-#{version}"
 build do
   configure = ['./configure',
                "--prefix=#{install_dir}/embedded",
+               "CFLAGS=-O1",
+               "CXXFLAGS=-O1",
               ].join(' ')
   command configure
 

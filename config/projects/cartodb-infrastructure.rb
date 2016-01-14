@@ -20,6 +20,7 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
+override :redis, version: "3.0.4"
 
 dependency "preparation"
 dependency 'cartodb-layer0-devel'

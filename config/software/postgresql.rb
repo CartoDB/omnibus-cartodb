@@ -15,7 +15,6 @@
 #
 
 name "postgresql"
-#default_version "9.5beta1"
 default_version "9.3.5"
 
 dependency "zlib"
@@ -56,6 +55,10 @@ end
 
 version "9.5beta1" do
   source md5: "4bd67bfa4dc148e3f9d09f6699b5931f"
+end
+
+version "9.4.5" do
+  source md5: "8b2e3472a8dc786649b4d02d02e039a0"
 end
 
 source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
