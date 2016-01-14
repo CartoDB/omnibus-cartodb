@@ -3,7 +3,7 @@ name "cartodb-postgis"
 maintainer "CartoDB team"
 homepage "https://github.com/CartoDB/omnibus-cartodb/blob/master/README.md"
 
-build_version Omnibus::BuildVersion.semver
+build_version '5beta1'
 build_iteration 1
 
 package_user   ENV['OMNIBUS_PACKAGE_USER']  || ENV['LOGNAME'] || 'root'
