@@ -10,23 +10,11 @@ dependency "ruby-net-sftp-gem"
 dependency "ruby-net-ping-gem"
 dependency "pg-gem"
 dependency "nokogiri"
-dependency "cartodb-npm"
+dependency 'cartodb-python-requirements'
 
 build do
-
-  env = with_standard_compiler_flags(with_embedded_path)
-  
-  # install development and test dependecies for grunt work...
   staging_dir = "#{install_dir}/embedded/cartodb"
-=begin  
-  command 'npm install -d',          cwd: staging_dir, env: env
-  command 'npm install grunt-timer', cwd: staging_dir, env: env
 
-  command 'grunt', cwd: staging_dir, env: env.merge({
-     "LC_ALL" => "en_US.UTF-8",
-     "LANG" => "en_US.UTF-8"
-  })
-=end  
   # remove the gitinfo
   delete "#{staging_dir}/**/.git"
   
