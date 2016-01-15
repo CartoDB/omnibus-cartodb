@@ -38,11 +38,6 @@ build do
      "LANG" => "en_US.UTF-8"
   })
   
-  # hack to pass health check
-  # todo: build phantomjs from source and install to PATH. `npm install` will use it.
-  delete "#{staging_dir}/**/node_modules"
-  delete "#{staging_dir}/**/.git"
-
   # this will make it easy for dependents to not care about the version suffix
   link staging_dir, "#{install_dir}/embedded/cartodb"
 end
