@@ -29,7 +29,6 @@ build do
     "BUNDLE_BUILD__NOKOGIRI" => "--use-system-libraries --with-xml2-lib=#{install_dir}/embedded/lib --with-xml2-include=#{install_dir}/embedded/include/libxml2 --with-xslt-lib=#{install_dir}/embedded/lib --with-xslt-include=#{install_dir}/embedded/include/libxslt --with-iconv-dir=#{install_dir}/embedded --with-zlib-dir=#{install_dir}/embedded"
   })
 
-  
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
 
@@ -37,7 +36,7 @@ build do
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
   })
-  
+
   # this will make it easy for dependents to not care about the version suffix
   link staging_dir, "#{install_dir}/embedded/cartodb"
 end
