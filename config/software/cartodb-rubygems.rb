@@ -10,7 +10,15 @@ dependency 'freetype'
 dependency 'fontconfig'
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
+  env = with_standard_compiler_flags(with_embedded_path).merge({
+         "CMAKE_PREFIX_PATH" => "#{install_dir}/embedded",
+         "LDFLAGS" => "-L#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib64 -I#{install_dir}/embedded/include",
+         "CFLAGS" => "-L#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib64",
+         "CXXFLAGS" => "-L#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib64",
+         "CPPFLAGS" => "-L#{install_dir}/embedded/lib -L#{install_dir}/embedded/lib64",
+         "LD_RUN_PATH" => "#{install_dir}/embedded/lib",
+         "LD_LIBRARY_PATH" => "#{install_dir}/embedded/lib",
+       })
   
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
