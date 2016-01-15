@@ -5,14 +5,12 @@ dependency "cartodb-postgis"
 dependency "unp"
 dependency "forever"
 dependency "ruby-saml-gem"
-dependency "ruby-net-ssh-gem"
-dependency "ruby-net-sftp-gem"
-dependency "ruby-net-ping-gem"
 dependency "pg-gem"
 dependency "nokogiri"
 dependency "cartodb-npm"
 
 build do
+=begin
   env = with_standard_compiler_flags(with_embedded_path)
   
   # install development and test dependecies for grunt work...
@@ -26,7 +24,11 @@ build do
      "LANG" => "en_US.UTF-8"
   })
   
+  # remove the gitinfo
+  delete "#{staging_dir}/**/.git"
+  
   # hack to pass health check
   # todo: build phantomjs from source and install to PATH. `npm install` will use it.
   delete "#{staging_dir}/**/node_modules"
+=end
 end
