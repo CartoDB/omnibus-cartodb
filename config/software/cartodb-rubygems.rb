@@ -6,9 +6,6 @@ source git: "https://github.com/bloomberg/cartodb",
 
 relative_path "#{name}-#{version}"
 
-dependency 'freetype'
-dependency 'fontconfig'
-
 build do
   env = with_standard_compiler_flags(with_embedded_path).merge({
          "CMAKE_PREFIX_PATH" => "#{install_dir}/embedded",
