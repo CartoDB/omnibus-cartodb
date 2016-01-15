@@ -36,7 +36,9 @@ build do
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
   })
-
+  
+  delete "#{staging_dir}/**/.git"
+  
   # this will make it easy for dependents to not care about the version suffix
   link staging_dir, "#{install_dir}/embedded/cartodb"
 end
