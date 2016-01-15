@@ -13,12 +13,12 @@ dependency "nokogiri"
 dependency "cartodb-npm"
 
 build do
-=begin
+
   env = with_standard_compiler_flags(with_embedded_path)
   
   # install development and test dependecies for grunt work...
   staging_dir = "#{install_dir}/embedded/cartodb"
-  
+=begin  
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
 
