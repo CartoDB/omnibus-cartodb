@@ -26,12 +26,11 @@ build do
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
   })
-  
+=end  
   # remove the gitinfo
   delete "#{staging_dir}/**/.git"
   
   # hack to pass health check
   # todo: build phantomjs from source and install to PATH. `npm install` will use it.
   delete "#{staging_dir}/**/node_modules"
-=end
 end
