@@ -6,6 +6,8 @@ source git: "https://github.com/bloomberg/cartodb",
 
 relative_path "#{name}-#{version}"
 
+dependency 'phantomjs'
+
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   
