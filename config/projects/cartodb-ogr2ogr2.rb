@@ -19,3 +19,5 @@ exclude "**/bundler/git"
 dependency "preparation"
 dependency "cartodb-ogr2ogr2"
 dependency "version-manifest"
+
+override :postgresql, version: "9.4.5"
