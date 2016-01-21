@@ -15,7 +15,7 @@ build do
   sync "#{project_dir}", staging_dir
   
   bundle = ["bundle",
-            "install ",
+            "install",
             "--path=#{install_dir}/embedded/gem",
             "--binstubs=#{install_dir}/embedded/bin",
             "--deployment",
