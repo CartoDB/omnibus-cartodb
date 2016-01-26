@@ -45,6 +45,10 @@ build do
   command "sed -i 's:for file in includes/rss/\\*;:for file in includes/rss/\\*.\\*;:g' ./html/Makefile", env: env
   command "sed -i 's:for file in includes/rss/extlib/\\*;:for file in includes/rss/extlib/\\*.\\*;:g' ./html/Makefile", env: env
 
+  # At build time, the user do not exist. 
+  # Modify the makefile to replace those users with the current user.
+  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o cartodb -g cartodb:-o $(whoami):g'\"", env: env
+  
   # Build it
   make "-j #{workers} all", env: env
   make "install", env: env
