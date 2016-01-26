@@ -31,10 +31,10 @@ build do
 
   command "./configure" \
           " --prefix=#{install_dir}/embedded/nagios" \
-          " --with-nagios-user=opscode-nagios" \
-          " --with-nagios-group=opscode-nagios" \
-          " --with-command-group=opscode-nagios-cmd" \
-          " --with-command-user=opscode-nagios-cmd" \
+          " --with-nagios-user=cartodb" \
+          " --with-nagios-group=cartodb" \
+          " --with-command-group=cartodb" \
+          " --with-command-user=cartodb" \
           " --with-gd-lib=#{install_dir}/embedded/lib" \
           " --with-gd-inc=#{install_dir}/embedded/include" \
           " --with-temp-dir=#{install_dir}/var/nagios/tmp" \
@@ -42,14 +42,8 @@ build do
           " --with-checkresult-dir=#{install_dir}/var/nagios/checkresult" \
           " --with-mail=/usr/bin/mail", env: env
 
-  # Do some hacky shit
   command "sed -i 's:for file in includes/rss/\\*;:for file in includes/rss/\\*.\\*;:g' ./html/Makefile", env: env
   command "sed -i 's:for file in includes/rss/extlib/\\*;:for file in includes/rss/extlib/\\*.\\*;:g' ./html/Makefile", env: env
-
-  # At build time, the users opscode-nagios-cmd and opscode-nagios do not exist.
-  # Modify the makefile to replace those users with the current user.
-  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o opscode-nagios-cmd -g opscode-nagios-cmd:-o $(whoami):g'\"", env: env
-  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o opscode-nagios -g opscode-nagios:-o $(whoami):g'\"", env: env
 
   # Build it
   make "-j #{workers} all", env: env
