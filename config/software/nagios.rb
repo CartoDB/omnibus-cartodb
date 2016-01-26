@@ -55,11 +55,10 @@ build do
   make "-j #{workers} all", env: env
   make "install", env: env
   make "install-config", env: env
+  make "install-webconf", env: env
   make "install-exfoliation", env: env
+  make "install-classicui", env: env
 
-  # Cleanup the install
-  delete "#{install_dir}/embedded/nagios/etc/*"
-
-  # Ensure the etc directory is avaialable on rebuild from git cache
+    # Ensure the etc directory is avaialable on rebuild from git cache
   touch "#{install_dir}/embedded/nagios/etc/.gitkeep"
 end
