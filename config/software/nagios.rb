@@ -53,7 +53,6 @@ build do
   make "-j #{workers} all", env: env
   make "install", env: env
   make "install-config", env: env
-  make "install-webconf", env: env
   make "install-exfoliation", env: env
   make "install-classicui", env: env
 
