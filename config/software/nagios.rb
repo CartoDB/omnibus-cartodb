@@ -37,9 +37,6 @@ build do
           " --with-command-user=cartodb" \
           " --with-gd-lib=#{install_dir}/embedded/lib" \
           " --with-gd-inc=#{install_dir}/embedded/include" \
-          " --with-temp-dir=#{install_dir}/var/nagios/tmp" \
-          " --with-lockfile=#{install_dir}/var/nagios/lock" \
-          " --with-checkresult-dir=#{install_dir}/var/nagios/checkresult" \
           " --with-mail=/usr/bin/mail", env: env
 
   command "sed -i 's:for file in includes/rss/\\*;:for file in includes/rss/\\*.\\*;:g' ./html/Makefile", env: env
