@@ -29,3 +29,4 @@ dependency 'zip'
 # monitoring
 dependency 'nagios'
 dependency 'nagios-plugins'
+dependency 'nrpe'

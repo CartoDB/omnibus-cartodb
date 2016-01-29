@@ -31,35 +31,28 @@ build do
 
   command "./configure" \
           " --prefix=#{install_dir}/embedded/nagios" \
-          " --with-nagios-user=opscode-nagios" \
-          " --with-nagios-group=opscode-nagios" \
-          " --with-command-group=opscode-nagios-cmd" \
-          " --with-command-user=opscode-nagios-cmd" \
+          " --with-nagios-user=cartodb" \
+          " --with-nagios-group=cartodb" \
+          " --with-command-group=cartodb" \
+          " --with-command-user=cartodb" \
           " --with-gd-lib=#{install_dir}/embedded/lib" \
           " --with-gd-inc=#{install_dir}/embedded/include" \
-          " --with-temp-dir=#{install_dir}/var/nagios/tmp" \
-          " --with-lockfile=#{install_dir}/var/nagios/lock" \
-          " --with-checkresult-dir=#{install_dir}/var/nagios/checkresult" \
           " --with-mail=/usr/bin/mail", env: env
 
-  # Do some hacky shit
   command "sed -i 's:for file in includes/rss/\\*;:for file in includes/rss/\\*.\\*;:g' ./html/Makefile", env: env
   command "sed -i 's:for file in includes/rss/extlib/\\*;:for file in includes/rss/extlib/\\*.\\*;:g' ./html/Makefile", env: env
 
-  # At build time, the users opscode-nagios-cmd and opscode-nagios do not exist.
+  # At build time, the user do not exist. 
   # Modify the makefile to replace those users with the current user.
-  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o opscode-nagios-cmd -g opscode-nagios-cmd:-o $(whoami):g'\"", env: env
-  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o opscode-nagios -g opscode-nagios:-o $(whoami):g'\"", env: env
-
+  command "bash -c \"find . -name 'Makefile' | xargs sed -i 's:-o cartodb -g cartodb:-o $(whoami):g'\"", env: env
+  
   # Build it
   make "-j #{workers} all", env: env
   make "install", env: env
   make "install-config", env: env
   make "install-exfoliation", env: env
+  make "install-classicui", env: env
 
-  # Cleanup the install
-  delete "#{install_dir}/embedded/nagios/etc/*"
-
-  # Ensure the etc directory is avaialable on rebuild from git cache
+    # Ensure the etc directory is avaialable on rebuild from git cache
   touch "#{install_dir}/embedded/nagios/etc/.gitkeep"
 end
