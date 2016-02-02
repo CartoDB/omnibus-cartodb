@@ -21,6 +21,7 @@ dependency "zlib"
 dependency "openssl"
 dependency "postgresql"
 dependency "libiconv"
+dependency "nrpe"
 
 # the url is the location of a redirect from sourceforge
 source url: "http://www.nagios-plugins.org/download/#{name}-#{version}.tar.gz",
