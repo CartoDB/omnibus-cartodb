@@ -18,6 +18,7 @@ name "libxpm"
 default_version "3.5.11"
 
 dependency "libx11"
+dependency "xproto"
 
 source url: "http://xorg.freedesktop.org/releases/individual/lib/libXpm-3.5.11.tar.gz",
        md5: "7c67c878ee048206b070bc0b24154f04"
