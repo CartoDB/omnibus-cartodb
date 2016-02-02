@@ -22,6 +22,7 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "cartodb-layer0-devel"
+dependency "cartodb-infrastructure"
 dependency "nagios"
 dependency "nagios-plugins"
 dependency "version-manifest"
