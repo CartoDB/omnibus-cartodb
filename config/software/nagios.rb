@@ -17,7 +17,6 @@
 name "nagios"
 default_version "3.3.1"
 
-dependency "xproto"
 dependency "gd"
 dependency "php"
 dependency "spawn-fcgi"
