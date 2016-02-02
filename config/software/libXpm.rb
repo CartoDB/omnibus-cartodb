@@ -1,6 +1,8 @@
 name "libXpm"
 default_version "3.5.5"
 
+dependency "xproto"
+
 source url: "http://xorg.freedesktop.org/releases/individual/lib/#{name}-#{version}.tar.gz",
        md5: "ae164be364086615dcc12c1f59035b55"
 
