@@ -25,7 +25,3 @@ dependency 'cartodb-postgis'
 dependency 'imagemagick'
 dependency 'unicorn'
 dependency 'zip'
-
-# monitoring
-dependency 'nagios'
-dependency 'nagios-plugins'
