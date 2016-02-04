@@ -27,7 +27,7 @@ else
   # - chef-client cannot use 2.2.x yet due to a bug in IRB that affects chef-shell on linux:
   #   https://bugs.ruby-lang.org/issues/11869
   # - the current status of 2.3.x is that it downloads but fails to compile.
-  default_version "2.1.6"
+  default_version "2.2.3"
 end
 
 fips_enabled = (project.overrides[:fips] && project.overrides[:fips][:enabled]) || false
