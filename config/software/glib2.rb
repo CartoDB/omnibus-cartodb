@@ -1,5 +1,5 @@
 name "glib2"
-default_version "2.44.1"
+default_version "2.46.2"
 
 version "2.42.0" do
   source md5: "dc08133ca0e4ffd61bb626e8bc35eb3c"
@@ -7,6 +7,10 @@ end
 
 version "2.44.1" do
   source md5: "3894d2f4258749cb78c9a0b00af19db4"
+end
+
+version "2.46.2" do
+  source md5: "f77666b8a5b7f0f1ef0eb7eeb37ddf8b"
 end
 
 dependency "gettext"
