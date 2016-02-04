@@ -7,7 +7,7 @@ end
 
 dependency "openssl"
 
-source :url => "https://github.com/downloads/libevent/libevent/libevent-#{version}.tar.gz"
+source :url => "https://github.com/libevent/libevent/releases/download/release-#{version}/libevent-#{version}.tar.gz"
 
 relative_path "libevent-#{version}"
 
