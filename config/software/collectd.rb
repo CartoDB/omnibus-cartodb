@@ -5,6 +5,10 @@ source git: "https://github.com/collectd/collectd.git"
 
 relative_path "#{name}-#{version}"
 
+dependency "autoconf"
+dependency "bison"
+dependency 'libtool'
+
 build do
   command "./build.sh", env: with_standard_compiler_flags(with_embedded_path)
 
