@@ -22,8 +22,6 @@ exclude "**/bundler/git"
 
 override :redis, version: "3.0.4"
 
-override :ruby, version: "2.2.3"
-
 dependency "preparation"
 dependency 'cartodb-layer0-devel'
 dependency 'cartodb-infrastructure'
