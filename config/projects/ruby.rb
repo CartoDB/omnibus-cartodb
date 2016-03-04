@@ -20,4 +20,6 @@ override :ruby, version: "2.2.4"
 
 dependency "preparation"
 dependency "ruby"
+dependency "bundler"
+dependency "fakeroot"
 dependency "version-manifest"
