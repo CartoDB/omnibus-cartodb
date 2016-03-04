@@ -18,4 +18,6 @@ exclude "**/bundler/git"
 
 dependency "preparation"
 dependency "ruby"
+dependency "bundler"
+dependency "fakeroot"
 dependency "version-manifest"
