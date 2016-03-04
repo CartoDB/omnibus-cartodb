@@ -16,8 +16,6 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
-override :ruby, version: "2.3.0"
-
 dependency "preparation"
 dependency "ruby"
 dependency "version-manifest"
