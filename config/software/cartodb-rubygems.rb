@@ -1,7 +1,7 @@
 name 'cartodb-rubygems'
-default_version 'master'
+default_version 'blp_prod'
 
-source git: "https://github.com/cartodb/cartodb",
+source git: "https://github.com/bloomberg/cartodb",
        submodules: true
 
 relative_path "#{name}-#{version}"
