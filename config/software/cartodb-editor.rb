@@ -10,7 +10,7 @@ dependency "ruby-net-sftp-gem"
 dependency "ruby-net-ping-gem"
 dependency "pg-gem"
 dependency "nokogiri"
-dependency 'cartodb-python-requirements'
+dependency 'cartodb-python-requirements'   
 
 
 build do
