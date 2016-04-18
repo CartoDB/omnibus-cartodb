@@ -30,6 +30,7 @@ build do
     "BUNDLE_BUILD__NOKOGIRI" => "--use-system-libraries --with-xml2-lib=#{install_dir}/embedded/lib --with-xml2-include=#{install_dir}/embedded/include/libxml2 --with-xslt-lib=#{install_dir}/embedded/lib --with-xslt-include=#{install_dir}/embedded/include/libxslt --with-iconv-dir=#{install_dir}/embedded --with-zlib-dir=#{install_dir}/embedded"
   })
 
+  command 'npm link lib/carto_assets/',          cwd: staging_dir, env: env
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
 
