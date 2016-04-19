@@ -24,6 +24,7 @@ dependency "libedit"
 dependency "ncurses"
 dependency "python"
 dependency "libxml2"
+dependency "openldap"
 
 ossp_uuid = " --with-ossp-uuid"
 
@@ -75,6 +76,7 @@ build do
           " --with-libedit-preferred" \
           " --with-libxml" \
           " --with-openssl --with-includes=#{install_dir}/embedded/include" \
+          " --with-ldap" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
