@@ -15,12 +15,12 @@
 #
 
 name "krb5"
-default_version "1.12"
+default_version "1.14.1"
 
 dependency "keyutils"
 
-source url: "http://pkgs.fedoraproject.org/repo/pkgs/krb5/krb5-1.12.tar.gz/e8220e2a4f650e94758d6a39eea4d8c8/krb5-1.12.tar.gz",
-       md5: "e8220e2a4f650e94758d6a39eea4d8c8"
+source url: "http://pkgs.fedoraproject.org/repo/pkgs/krb5/krb5-1.14.1.tar.gz/400de0cabbfbe85c2c36f60347bf7dc6/krb5-1.14.1.tar.gz",
+       md5: "400de0cabbfbe85c2c36f60347bf7dc6"
        
 relative_path "krb5-#{version}/src"
 
