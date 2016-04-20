@@ -4,7 +4,7 @@
 #
 
 name 'nodejs'
-default_version '0.12.7'
+default_version '0.10.33'
 
 dependency "python"
 
