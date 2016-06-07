@@ -23,7 +23,6 @@ dependency "preparation"
 dependency "cartodb-infrastructure"
 dependency "cartodb-editor"
 dependency "cartodb-postgis"
-dependency "pg_schema_triggers"
 dependency "cartodb-sql-api"
 dependency 'libXrender'
 dependency 'pango'
