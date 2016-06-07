@@ -7,7 +7,7 @@ end
 
 dependency "libpng"
 
-source :url => "http://cairographics.org/releases/pixman-#{version}.tar.gz"
+source :url => "https://www.cairographics.org/releases/pixman-#{version}.tar.gz"
 
 relative_path "pixman-#{version}"
 
