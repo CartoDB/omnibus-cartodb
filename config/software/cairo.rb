@@ -13,7 +13,7 @@ dependency "poppler"
 dependency "pixman"
 dependency "libspectre"
 
-source :url => "http://cairographics.org/releases/cairo-#{version}.tar.xz"
+source :url => "https://www.cairographics.org/releases/cairo-#{version}.tar.xz"
 
 relative_path "cairo-#{version}"
 
