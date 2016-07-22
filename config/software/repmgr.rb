@@ -19,16 +19,15 @@ default_version "3.1.4"
 
 dependency "postgresql"
 
-version "3.1.4" do
+version "3.0.2" do
   source md5: "2eb74874219ed7e74c224871232a1bfa"
 end
 
-version "3.0.2" do
+version "3.1.4" do
   source md5: "a3d5b1b093dccc289d8c26c8a9324779"
 end
 
 source url: "https://github.com/2ndQuadrant/repmgr/archive/v#{version}.tar.gz",
-       md5: "2eb74874219ed7e74c224871232a1bfa"
 
 relative_path "#{name}-#{version}"
 
