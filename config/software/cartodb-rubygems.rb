@@ -1,5 +1,5 @@
 name 'cartodb-rubygems'
-default_version 'blp_prod_merge'
+default_version 'blp_prod'
 
 source git: "https://github.com/bloomberg/cartodb",    
        submodules: true
