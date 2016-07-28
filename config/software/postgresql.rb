@@ -15,7 +15,7 @@
 #
 
 name "postgresql"
-default_version "9.3.5"
+default_version "9.5.3"
 
 dependency "zlib"
 dependency "openssl"
@@ -24,6 +24,7 @@ dependency "libedit"
 dependency "ncurses"
 dependency "python"
 dependency "libxml2"
+dependency "openldap"
 
 ossp_uuid = " --with-ossp-uuid"
 
@@ -61,6 +62,14 @@ version "9.4.5" do
   source md5: "8b2e3472a8dc786649b4d02d02e039a0"
 end
 
+version "9.5.0" do
+  source md5: "e58fffe9359e311ead94490a06b7147c"
+end
+
+version "9.5.3" do
+  source md5: "3f0c388566c688c82b01a0edf1e6b7a0"
+end
+
 source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
 
 relative_path "postgresql-#{version}"
@@ -75,6 +84,7 @@ build do
           " --with-libedit-preferred" \
           " --with-libxml" \
           " --with-openssl --with-includes=#{install_dir}/embedded/include" \
+          " --with-ldap" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
