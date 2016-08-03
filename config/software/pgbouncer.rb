@@ -20,8 +20,16 @@ default_version "1.6.1"
 dependency "make"
 dependency "libevent"
        
-source url: "https://pgbouncer.github.io/downloads/files/#{version}/#{name}-#{version}.tar.gz",
-       md5: "3b26ba239d54b28b5e5c4c7e6bf9e49d"
+source url: "https://pgbouncer.github.io/downloads/files/#{version}/#{name}-#{version}.tar.gz"
+
+version '1.6.1' do
+  source md5: '3b26ba239d54b28b5e5c4c7e6bf9e49d'
+end
+
+version '1.7.2' do
+  source md5: '16552367448d80ab2a81eeff825f7006'
+end
+
 relative_path "#{name}-#{version}"
 
 build do
