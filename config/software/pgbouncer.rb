@@ -15,7 +15,7 @@
 #
 
 name "pgbouncer"
-default_version "1.6.1"
+default_version "1.7.2"
 
 dependency "make"
 dependency "libevent"
