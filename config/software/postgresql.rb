@@ -76,10 +76,10 @@ version "9.5" do
 end
 #source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
 #source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
-source git: "https://github.com/akatuluru/postgres.git"
+source git: "https://github.com/akatuluru/postgres/tree/REL9_5_STABLE_extension_shipping.git"
 
 #relative_path "postgresql-#{version}"
-relative_path "postgres9.5fdw"
+relative_path "postgres-REL9_5_STABLE_extension_shipping"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
