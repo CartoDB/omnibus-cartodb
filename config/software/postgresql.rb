@@ -25,6 +25,7 @@ dependency "ncurses"
 dependency "python"
 dependency "libxml2"
 dependency "openldap"
+dependency "bison"
 
 ossp_uuid = " --with-ossp-uuid"
 
