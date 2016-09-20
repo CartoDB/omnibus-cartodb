@@ -91,6 +91,8 @@ build do
           " --with-libxml" \
           " --with-openssl --with-includes=#{install_dir}/embedded/include" \
           " --with-ldap" \
+          " --without-osx" \
+          " --without-jade" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
