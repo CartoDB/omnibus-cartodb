@@ -76,7 +76,7 @@ version "9.5" do
 end
 #source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
 #source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
-source git: "https://github.com/akatuluru/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+source url: "https://github.com/akatuluru/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
 
 #relative_path "postgresql-#{version}"
 relative_path "postgres-REL9_5_STABLE_extension_shipping"
