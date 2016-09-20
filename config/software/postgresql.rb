@@ -84,16 +84,15 @@ relative_path "postgres-REL9_5_STABLE_extension_shipping"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
+  command "./configure --prefix=#{install_dir}/embedded", env: env
           #" --with-python" \
           #"#{ossp_uuid}" \
           #" --with-libedit-preferred" \
           #" --with-libxml" \
           #" --with-openssl 
-          "--with-includes=#{install_dir}/embedded/include" \
+          #"--with-includes=#{install_dir}/embedded/include" \
           #" --with-ldap" \
-          " --with-libraries=#{install_dir}/embedded/lib", env: env
+          #" --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
   make "check", env: env
