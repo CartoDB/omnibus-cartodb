@@ -75,8 +75,8 @@ version "9.5" do
   source md5: "7e06af1fce2325a737deffb44e538e32"
 end
 #source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
-#source url: "https://github.com/akatuluru/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+#source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+source git: "http://bbgithub.dev.bloomberg.com/datavis-cartodb/postgres9.5fdw.git"
 
 #relative_path "postgresql-#{version}"
 relative_path "postgres-REL9_5_STABLE_extension_shipping"
@@ -84,15 +84,15 @@ relative_path "postgres-REL9_5_STABLE_extension_shipping"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
-  command "./configure --prefix=#{install_dir}/embedded", env: env
-          #" --with-python" \
-          #"#{ossp_uuid}" \
-          #" --with-libedit-preferred" \
-          #" --with-libxml" \
-          #" --with-openssl 
-          #"--with-includes=#{install_dir}/embedded/include" \
-          #" --with-ldap" \
-          #" --with-libraries=#{install_dir}/embedded/lib", env: env
+  command "./configure" \ 
+          "--prefix=#{install_dir}/embedded" \
+          " --with-python" \
+          "#{ossp_uuid}" \
+          " --with-libedit-preferred" \
+          " --with-libxml" \
+          " --with-openssl --with-includes=#{install_dir}/embedded/include" \
+          " --with-ldap" \
+          " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
   make "check", env: env
