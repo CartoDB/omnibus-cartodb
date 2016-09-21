@@ -79,7 +79,7 @@ source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension
 #source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
 
 #relative_path "postgresql-#{version}"
-relative_path "REL9_5_STABLE_extension_shipping"
+relative_path "postgres-REL9_5_STABLE_extension_shipping"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
