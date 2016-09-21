@@ -94,7 +94,7 @@ build do
           " --with-ldap" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
-  make "-j #{workers} world", env: env
+  make "-j #{workers}", env: env
   make "check", env: env
   make "install-world", env: env
 end
