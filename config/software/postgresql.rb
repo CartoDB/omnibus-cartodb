@@ -85,7 +85,14 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   command "./configure" \
-          " --prefix=#{install_dir}/embedded", env: env
+          " --prefix=#{install_dir}/embedded" \
+          " --with-python" \
+          "#{ossp_uuid}" \
+          " --with-libedit-preferred" \
+          " --with-libxml" \
+          " --with-openssl --with-includes=#{install_dir}/embedded/include" \
+          " --with-ldap" \
+          " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
   make "check", env: env
