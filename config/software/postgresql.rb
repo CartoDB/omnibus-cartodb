@@ -86,12 +86,7 @@ build do
 
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
-          #" --with-python" \
-          #"#{ossp_uuid}" \
-          #" --with-libedit-preferred" \
-          #" --with-libxml" \
-          " --with-openssl --with-includes=#{install_dir}/embedded/include" \
-          #" --with-ldap" \
+          " --with-includes=#{install_dir}/embedded/include" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
