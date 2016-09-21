@@ -29,57 +29,57 @@ dependency "bison"
 
 ossp_uuid = " --with-ossp-uuid"
 
-#version "9.1.9" do
-#  source md5: "6b5ea53dde48fcd79acfc8c196b83535"
-#end
+version "9.1.9" do
+  source md5: "6b5ea53dde48fcd79acfc8c196b83535"
+end
 
-#version "9.2.8" do
-#  source md5: "c5c65a9b45ee53ead0b659be21ca1b97"
-#end
+version "9.2.8" do
+  source md5: "c5c65a9b45ee53ead0b659be21ca1b97"
+end
 
-#version "9.3.4" do
-#  source md5: "d0a41f54c377b2d2fab4a003b0dac762"
-#end
+version "9.3.4" do
+  source md5: "d0a41f54c377b2d2fab4a003b0dac762"
+end
 
-#version "9.3.5" do
-#  source md5: "5059857c7d7e6ad83b6d55893a121b59"
-#end
+version "9.3.5" do
+  source md5: "5059857c7d7e6ad83b6d55893a121b59"
+end
 
-#version "9.4.4" do
-#  source md5: "1fe952c44ed26d7e6a335cf991a9c1c6"
+version "9.4.4" do
+  source md5: "1fe952c44ed26d7e6a335cf991a9c1c6"
   # Config options have changed with 9.4.x
-#  ossp_uuid = " --with-uuid=ossp"
-#end
+  ossp_uuid = " --with-uuid=ossp"
+end
 
-#version "9.4.5" do
-#  source md5: "8b2e3472a8dc786649b4d02d02e039a0"
-#end
+version "9.4.5" do
+  source md5: "8b2e3472a8dc786649b4d02d02e039a0"
+end
 
-#version "9.5beta1" do
-#  source md5: "4bd67bfa4dc148e3f9d09f6699b5931f"
-#end
+version "9.5beta1" do
+  source md5: "4bd67bfa4dc148e3f9d09f6699b5931f"
+end
 
-#version "9.4.5" do
-#  source md5: "8b2e3472a8dc786649b4d02d02e039a0"
-#end
+version "9.4.5" do
+  source md5: "8b2e3472a8dc786649b4d02d02e039a0"
+end
 
-#version "9.5.0" do
-#  source md5: "e58fffe9359e311ead94490a06b7147c"
-#end
+version "9.5.0" do
+  source md5: "e58fffe9359e311ead94490a06b7147c"
+end
 
-#version "9.5.3" do
-#  source md5: "3f0c388566c688c82b01a0edf1e6b7a0"
-#end
+version "9.5.3" do
+  source md5: "3f0c388566c688c82b01a0edf1e6b7a0"
+end
 
-#version "9.5" do
-#  source md5: "0053dc49c9fa2ac7c62df58c8d37d0adbd6b697e"
-#end
+version "9.5" do
+  source md5: "0053dc49c9fa2ac7c62df58c8d37d0adbd6b697e"
+end
 #source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-#source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
-source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
+source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+#source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
 
 #relative_path "postgresql-#{version}"
-relative_path "postgres9.5fdw"
+relative_path "REL9_5_STABLE_extension_shipping"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
