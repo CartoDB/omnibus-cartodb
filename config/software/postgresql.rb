@@ -84,6 +84,7 @@ relative_path "postgres-REL9_5_STABLE_extension_shipping"
 build do
   env = with_standard_compiler_flags(with_embedded_path)
 
+  command "yum install openjade"
   command "./configure" \
           " --prefix=#{install_dir}/embedded" \
           " --with-python" \
@@ -94,7 +95,7 @@ build do
           " --with-ldap" \
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
-  make "-j #{workers}", env: env
+  make "-j #{workers} world", env: env
   make "check", env: env
-  make "install", env: env
+  make "install-world", env: env
 end
