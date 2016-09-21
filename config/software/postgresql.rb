@@ -85,9 +85,7 @@ build do
   env = with_standard_compiler_flags(with_embedded_path)
 
   command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --with-includes=#{install_dir}/embedded/include" \
-          " --with-libraries=#{install_dir}/embedded/lib", env: env
+          " --prefix=#{install_dir}/embedded", env: env
 
   make "-j #{workers} world", env: env
   make "check", env: env
