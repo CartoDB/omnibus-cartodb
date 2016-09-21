@@ -96,5 +96,5 @@ build do
 
   make "-j #{workers}", env: env
   make "check", env: env
-  make "install-world", env: env
+  make "install", env: env
 end
