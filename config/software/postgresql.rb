@@ -72,7 +72,7 @@ version "9.5.3" do
 end
 
 version "9.5" do
-  source md5: "0053dc49c9fa2ac7c62df58c8d37d0adbd6b697e"
+  source md5: "7e06af1fce2325a737deffb44e538e32"
 end
 #source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
 source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
