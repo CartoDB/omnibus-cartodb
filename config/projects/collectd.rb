@@ -15,6 +15,8 @@ install_dir "#{package_root}/#{name}"
 # .rpm and .deb are already compressed so the below compress doesnt help much. 
 # compress :tgz
 
+override :ruby, version: "2.2.4"
+
 exclude "**/.git"
 exclude "**/bundler/git"
 
