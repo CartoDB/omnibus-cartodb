@@ -24,7 +24,7 @@ dependency "libtiff"
 dependency "lcms2"
 dependency "zlib"
 
-source url: "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/#{us_version}/ghostscript-#{version}.tar.gz"
+source url: "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs#{us_version}/ghostscript-#{version}.tar.gz"
 
 relative_path "ghostscript-#{version}"
 
