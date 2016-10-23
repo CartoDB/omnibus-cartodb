@@ -15,10 +15,10 @@
 #
 
 name "keyutils"
-default_version "1.3"
+default_version "1.5.9"
 
-source url: "http://people.redhat.com/~dhowells/keyutils/keyutils-1.3.tar.bz2",
-       md5: "522e08a0906b66eb7e8af15eec290a03"
+source url: "http://people.redhat.com/~dhowells/keyutils/keyutils-1.5.9.tar.bz2",
+       md5: "7f8ac985c45086b5fbcd12cecd23cf07"
        
 relative_path "keyutils-#{version}"
 

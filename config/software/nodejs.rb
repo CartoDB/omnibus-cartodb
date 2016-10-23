@@ -37,6 +37,11 @@ end
 #   source md5: 'cf22f6f5a4f0b987c7ab6ef0f4267859'
 # end
 
+version "0.12.7" do
+  source md5: '5523ec4347d7fe6b0f6dda1d1c7799d5'
+end
+
+
 source url: "http://nodejs.org/dist/v#{version}/node-v#{version}.tar.gz"
 
 relative_path "node-v#{version}"

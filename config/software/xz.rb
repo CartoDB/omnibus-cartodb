@@ -12,7 +12,7 @@ end
 dependency "libiconv"
 
 #source :url => "http://webops-resources.dev.bloomberg.com/other_stuff/xz-#{version}.tar.gz"
-source :url => "http://tukaani.org/xz/xz-#{version}.tar.gz"
+source :url => "http://downloads.sourceforge.net/project/lzmautils/xz-#{version}.tar.gz?"
 
 relative_path "xz-#{version}"
 
