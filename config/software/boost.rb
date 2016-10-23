@@ -4,7 +4,7 @@ default_version '1.56.0'
 
 us_version = version.gsub('.', '_')
 
-source url: "http://downloads.sourceforge.net/project/boost/boost/#{version}/boost_#{us_version}.tar.bz2
+source url: "http://downloads.sourceforge.net/project/boost/boost/#{version}/boost_#{us_version}.tar.bz2^
 
 version "1.50.0" do
   source md5: "52dd00be775e689f55a987baebccc462"
