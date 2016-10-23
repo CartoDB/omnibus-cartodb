@@ -1,6 +1,6 @@
-name "collectd"
-maintainer "CartoDB team"
-homepage "https://github.com/collectd/collectd"
+name "elasticserch"
+maintainer "ES team"
+homepage "https://www.elastic.co/"
 
 build_version Omnibus::BuildVersion.semver
 
@@ -12,15 +12,11 @@ build_iteration ENV['OMNIBUS_PROJECT_BUILD_ITERATION'] || 1
 
 install_dir "#{package_root}/#{name}"
 
-# .rpm and .deb are already compressed so the below compress doesnt help much. 
-# compress :tgz
+#creates required build directories
+#
+ 
+ dependency "elasticserch"
 
-override :ruby, version: "2.2.4"
 
-exclude "**/.git"
-exclude "**/bundler/git"
-
-dependency "preparation"
-dependency "cartodb-infrastructure"
-dependency "collectd"
-dependency "version-manifest"
+ exclude "\.git*"
+ exclude "bundler\/git"

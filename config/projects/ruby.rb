@@ -1,8 +1,9 @@
-name "collectd"
+name "ruby"
 maintainer "CartoDB team"
-homepage "https://github.com/collectd/collectd"
+homepage "https://github.com/CartoDB/omnibus-cartodb#cartodb-compontents-layers"
 
 build_version Omnibus::BuildVersion.semver
+build_iteration 1
 
 package_user   ENV['OMNIBUS_PACKAGE_USER']  || ENV['LOGNAME'] || 'root'
 package_group  ENV['OMNIBUS_PACKAGE_GROUP'] || ENV['OMNIBUS_PACKAGE_USER'] || ENV['LOGNAME'] || 'root'
@@ -12,15 +13,12 @@ build_iteration ENV['OMNIBUS_PROJECT_BUILD_ITERATION'] || 1
 
 install_dir "#{package_root}/#{name}"
 
-# .rpm and .deb are already compressed so the below compress doesnt help much. 
-# compress :tgz
-
-override :ruby, version: "2.2.4"
-
 exclude "**/.git"
 exclude "**/bundler/git"
 
+override :ruby, version: "2.2.4"
+
 dependency "preparation"
-dependency "cartodb-infrastructure"
-dependency "collectd"
+dependency "ruby"
+dependency "bundler"
 dependency "version-manifest"
