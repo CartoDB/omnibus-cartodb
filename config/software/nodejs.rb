@@ -1,8 +1,3 @@
-#
-# Copyright 2013-2014 Bloomberg LP
-#
-#
-
 name 'nodejs'
 default_version '0.10.33'
 
