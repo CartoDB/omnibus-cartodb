@@ -1,6 +1,5 @@
 name 'boost'
 default_version '1.56.0'
-#default_version '1.50.0'
 
 us_version = version.gsub('.', '_')
 
@@ -13,7 +12,6 @@ end
 version "1.56.0" do
   source md5: "a744cf167b05d72335f27c88115f211d"
 end
-
 
 relative_path "#{name}_#{us_version}"
 
