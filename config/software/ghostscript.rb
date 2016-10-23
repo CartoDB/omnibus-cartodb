@@ -1,6 +1,8 @@
 
 name "ghostscript"
-default_version "9.16"
+default_version "9.19"
+
+us_version = version.gsub('.', '')
 
 version "9.14" do
   source md5: "88625624e9ecd2ee53aaa041b1efbc99"
@@ -8,6 +10,10 @@ end
 
 version "9.16" do
   source md5: "829319325bbdb83f5c81379a8f86f38f"
+end
+
+version "9.19" do
+  source md5: "c9682ce6b852f9197c69905a43928907"
 end
 
 dependency "expat"
@@ -18,7 +24,7 @@ dependency "libtiff"
 dependency "lcms2"
 dependency "zlib"
 
-source url: "http://downloads.ghostscript.com/public/ghostscript-#{version}.tar.gz"
+source url: "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/#{us_version}/ghostscript-#{version}.tar.gz"
 
 relative_path "ghostscript-#{version}"
 
