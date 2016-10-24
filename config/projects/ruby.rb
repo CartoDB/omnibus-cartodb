@@ -1,4 +1,4 @@
-name "ruby"
+name "omnibus-cartodb"
 maintainer "CartoDB team"
 homepage "https://github.com/CartoDB/omnibus-cartodb#cartodb-compontents-layers"
 
@@ -16,9 +16,12 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
-override :ruby, version: "2.2.4"
+override :ruby, version: "2.3.0"
 
 dependency "preparation"
+dependency "cacerts"
 dependency "ruby"
+dependency "rubygems"
 dependency "bundler"
+dependency "ruby-omnibus-gem" 
 dependency "version-manifest"
