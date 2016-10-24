@@ -1,4 +1,4 @@
-name ruby-omnibus-gem
+name "ruby-omnibus-gem"
 default_version "master"
 
 source git: "https://github.com/cartodb/omnibus-cartodb"
