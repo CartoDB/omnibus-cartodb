@@ -1,5 +1,5 @@
 name "glib2"
-default_version "2.49.1"
+default_version "2.44.1"
 
 version "2.42.0" do
   source md5: "dc08133ca0e4ffd61bb626e8bc35eb3c"
