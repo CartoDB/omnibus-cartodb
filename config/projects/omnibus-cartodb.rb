@@ -19,6 +19,7 @@ exclude "**/bundler/git"
 override :ruby, version: "2.2.4"
 
 dependency "preparation"
+dependency "automake"
 dependency "libtool"
 dependency "patch"
 dependency "git"
