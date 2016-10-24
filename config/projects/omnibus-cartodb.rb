@@ -16,7 +16,7 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
-override :ruby, version: "2.3.0"
+override :ruby, version: "2.2.4"
 
 dependency "preparation"
 dependency "cacerts"
