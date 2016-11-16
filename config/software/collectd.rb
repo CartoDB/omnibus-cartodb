@@ -1,5 +1,5 @@
 name 'collectd'
-default_version 'collectd-5.5.0'
+default_version 'collectd-5.6.1'
 
 source git: "https://github.com/collectd/collectd.git"
 
