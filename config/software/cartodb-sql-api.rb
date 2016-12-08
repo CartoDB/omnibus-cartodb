@@ -1,7 +1,7 @@
 name 'cartodb-sql-api'
 default_version 'cdb'
 
-source git: "https://github.com/CartoDB/#{name}"
+source git: "https://github.com/bloomberg/#{name}"
 
 relative_path "#{name}-#{version}"
 
