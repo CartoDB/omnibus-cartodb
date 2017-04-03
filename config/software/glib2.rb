@@ -1,5 +1,5 @@
 name "glib2"
-default_version "2.44.1"
+default_version "2.52.0"
 
 version "2.42.0" do
   source md5: "dc08133ca0e4ffd61bb626e8bc35eb3c"
@@ -42,6 +42,11 @@ build do
 	"--with-pcre=system",    
 	"--with-libiconv",
   ]
+
+  # We dont have a libmount omnibus package so disable the build option for now.
+  if version == "2.52.0"
+    configure.push("--enable-libmount=no")
+  end
 
   command configure.join(" "), :env => env
   command "make -j #{workers}", :env => env
