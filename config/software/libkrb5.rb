@@ -17,21 +17,26 @@
 name "krb5"
 default_version "1.14.1"
 
-dependency "keyutils"
+unless mac_os_x?
+  # libkrb5 is installed by default on mac
+  dependency "keyutils"
 
-source url: "http://pkgs.fedoraproject.org/repo/pkgs/krb5/krb5-1.14.1.tar.gz/400de0cabbfbe85c2c36f60347bf7dc6/krb5-1.14.1.tar.gz",
-       md5: "400de0cabbfbe85c2c36f60347bf7dc6"
-       
-relative_path "krb5-#{version}/src"
+  source url: "http://pkgs.fedoraproject.org/repo/pkgs/krb5/krb5-1.14.1.tar.gz/400de0cabbfbe85c2c36f60347bf7dc6/krb5-1.14.1.tar.gz",
+         md5: "400de0cabbfbe85c2c36f60347bf7dc6"
+         
+  relative_path "krb5-#{version}/src"
+end
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
+  unless mac_os_x?
+    env = with_standard_compiler_flags(with_embedded_path)
 
-  command "./configure" \
-          " --prefix=#{install_dir}/embedded" \
-          " --without-system-verto" \
-          " --enable-dns-for-realm", env: env
+    command "./configure" \
+            " --prefix=#{install_dir}/embedded" \
+            " --without-system-verto" \
+            " --enable-dns-for-realm", env: env
 
-  make "", env: env
-  make "install", env: env
+    make "", env: env
+    make "install", env: env
+  end
 end

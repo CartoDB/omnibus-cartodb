@@ -19,18 +19,23 @@ default_version "0.11"
 
 dependency "libkrb5"
 
-source url: "http://pkgs.fedoraproject.org/repo/pkgs/libgssapi/libgssapi-0.11.tar.gz/0e5b4c7267724f8ddf64bc35514c272e/libgssapi-0.11.tar.gz",
-       md5: "0e5b4c7267724f8ddf64bc35514c272e"
+unless mac_os_x?
+  # gssapi is installed by default on os x
+  source url: "http://pkgs.fedoraproject.org/repo/pkgs/libgssapi/libgssapi-0.11.tar.gz/0e5b4c7267724f8ddf64bc35514c272e/libgssapi-0.11.tar.gz",
+         md5: "0e5b4c7267724f8ddf64bc35514c272e"
 
-relative_path "libgssapi-#{version}"
+  relative_path "libgssapi-#{version}"
+end
 
 build do
 #  patch :source => "cyrus-sasl-patch.patch"
-  env = with_standard_compiler_flags(with_embedded_path)
+  unless mac_os_x?
+    env = with_standard_compiler_flags(with_embedded_path)
 
-  command "./configure" \
-          " --prefix=#{install_dir}/embedded", env: env
+    command "./configure" \
+            " --prefix=#{install_dir}/embedded", env: env
 
-  make "-j #{workers}", env: env
-  make "install", env: env
+    make "-j #{workers}", env: env
+    make "install", env: env
+  end
 end

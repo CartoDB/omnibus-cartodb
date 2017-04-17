@@ -1,5 +1,9 @@
 name "fontconfig"
-default_version "2.11.1"
+default_version "2.12.1"
+
+version "2.12.1" do
+  source md5: "b5af5a423ee3b5cfc34846838963c058"
+end
 
 version "2.11.1" do
   source md5: "824d000eb737af6e16c826dd3b2d6c90"
