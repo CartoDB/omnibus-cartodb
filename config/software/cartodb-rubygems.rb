@@ -33,7 +33,7 @@ build do
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
 
-  command 'grunt ', cwd: staging_dir, env: env.merge({
+  command 'grunt', cwd: staging_dir, env: env.merge({
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
   })
