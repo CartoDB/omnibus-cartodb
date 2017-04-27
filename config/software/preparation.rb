@@ -19,7 +19,7 @@ description "the steps required to preprare the build"
 default_version '1.0.0'
 
 # required for rpmbuild
-#dependency 'fakeroot'
+dependency 'fakeroot'
 
 build do
   block do
