@@ -15,7 +15,7 @@
 #
 
 name "postgresql"
-default_version "9.5"
+default_version "9.6.3"
 
 dependency "zlib"
 dependency "openssl"
@@ -71,15 +71,19 @@ version "9.5.3" do
   source md5: "3f0c388566c688c82b01a0edf1e6b7a0"
 end
 
+version "9.6.3" do
+  source md5: "ce1d0a57ace0a5b7a994b56796fdba35"
+end
+
 version "9.5" do
   source md5: "7e06af1fce2325a737deffb44e538e32"
 end
-#source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+#source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
 #source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
 
-#relative_path "postgresql-#{version}"
-relative_path "postgres-REL9_5_STABLE_extension_shipping"
+relative_path "postgresql-#{version}"
+#relative_path "postgres-REL9_5_STABLE_extension_shipping"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
