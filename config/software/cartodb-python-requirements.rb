@@ -1,8 +1,6 @@
 name "cartodb-python-requirements"  
 
 
-dependency "cartodb-rubygems"
-
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   staging_dir = "#{install_dir}/embedded/cartodb"
