@@ -16,10 +16,6 @@
 
 name "cacerts"
 
-license "MPL-2.0"
-license_file "https://github.com/bagder/ca-bundle/blob/master/README.md"
-skip_transitive_dependency_licensing true
-
 default_version "2017-01-18"
 
 source url: "https://curl.haxx.se/ca/cacert-#{version}.pem"
