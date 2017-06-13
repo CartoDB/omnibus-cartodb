@@ -16,8 +16,19 @@
 
 name "cacerts"
 
-# Date of the file is in a comment at the start, or in the changelog
-default_version "2016.01.20"
+license "MPL-2.0"
+license_file "https://github.com/bagder/ca-bundle/blob/master/README.md"
+skip_transitive_dependency_licensing true
+
+default_version "2017-01-18"
+
+source url: "https://curl.haxx.se/ca/cacert-#{version}.pem"
+
+version("2017-01-18") { source sha256: "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47" }
+
+version "2016-04-20" do
+  source md5: "782dcde8f5d53b1b9e888fdf113c42b9"
+end
 
 version "2016.01.20" do
   source md5: "06629db7f712ff3a75630eccaecc1fe4"
