@@ -21,6 +21,7 @@ default_version "2016.01.20"
 
 version "2016.01.20" do
   source md5: "06629db7f712ff3a75630eccaecc1fe4"
+  source url: "https://curl.haxx.se/ca/cacert-2016-01-20.pem"
 end
 
 version "2015.10.28" do
