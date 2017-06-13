@@ -74,12 +74,12 @@ build do
 
   # Append the 1024bit Verisign certs so that S3 continues to work
   block do
-    unless File.foreach("#{project_dir}/cacert.pem").grep(/^Verisign Class 3 Public Primary Certification Authority$/).any?
-      File.open("#{project_dir}/cacert.pem", "a") { |fd| fd.write(VERISIGN_CERTS) }
+    unless File.foreach("#{project_dir}/cacert-#{version}.pem").grep(/^Verisign Class 3 Public Primary Certification Authority$/).any?
+      File.open("#{project_dir}/cacert-#{version}.pem", "a") { |fd| fd.write(VERISIGN_CERTS) }
     end
   end
 
-  copy "#{project_dir}/cacert.pem", "#{install_dir}/embedded/ssl/certs/cacert.pem"
+  copy "#{project_dir}/cacert-#{version}.pem", "#{install_dir}/embedded/ssl/certs/cacert.pem"
 
   # Windows does not support symlinks
   unless windows?
