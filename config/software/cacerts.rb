@@ -67,8 +67,6 @@ version "2014.01.28" do
   source md5: "5d108f8ab86afacc6663aafca8604dd3"
 end
 
-source url: "http://curl.haxx.se/ca/cacert.pem"
-
 relative_path "cacerts-#{version}"
 
 build do
