@@ -29,13 +29,13 @@ build do
 
   configure_command = "./configure" \
                       " --prefix=#{install_dir}/embedded --enable-extra-encodings --enable-relocatable"
-  if aix?
-    patch_env = env.dup
-    patch_env['PATH'] = "/opt/freeware/bin:#{env['PATH']}"
-    patch source: 'libiconv-1.14_srclib_stdio.in.h-remove-gets-declarations.patch', env: patch_env
-  else
-    patch source: 'libiconv-1.14_srclib_stdio.in.h-remove-gets-declarations.patch'
-  end
+  #if aix?
+  #  patch_env = env.dup
+  #  patch_env['PATH'] = "/opt/freeware/bin:#{env['PATH']}"
+  #  patch source: 'libiconv-1.14_srclib_stdio.in.h-remove-gets-declarations.patch', env: patch_env
+  #else
+  #  patch source: 'libiconv-1.14_srclib_stdio.in.h-remove-gets-declarations.patch'
+  #end
 
   if version == "1.14" && ppc64le?
     patch source: "v1.14.ppc64le-configure.patch", plevel: 1
