@@ -6,7 +6,7 @@ version "2.42.0" do
 end
 
 version "2.44.1" do
-  source md5: "3894d2f4258749cb78c9a0b00af19db4"
+  source md5: "83efba4722a9674b97437d1d99af79db"
 end
 
 version "2.49.1" do
@@ -17,7 +17,8 @@ dependency "gettext"
 dependency "libffi"
 dependency "pcre"
 
-source :url => "http://fossies.org/linux/misc/glib-#{version}.tar.gz"
+#source :url => "http://fossies.org/linux/misc/glib-#{version}.tar.gz"
+source :url => "https://ftp.osuosl.org/pub/blfs/conglomeration/glib/glib-#{version}.tar.xz"
 
 relative_path "glib-#{version}"
 

@@ -8,7 +8,7 @@ relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  
+  env["PATH"] = "/home/cartodb/.nvm/versions/node/v6.9.2/bin:" + env["PATH"] 
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"

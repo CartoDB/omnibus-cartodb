@@ -1,5 +1,5 @@
 #
-# Copyright 2014 Chef Software, Inc.
+# Copyright 2012-2014 Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,30 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "libpng"
+default_version "1.5.17"
 
-dependency "ruby"
-dependency "rubygems"
+dependency "zlib"
+
+source url: "http://downloads.sourceforge.net/libpng/libpng-#{version}.tar.gz"
+
+version "1.5.17" do
+  source md5: "d2e27dbd8c6579d1582b3f128fd284b4"
+end
+
+version "1.5.13" do
+  source md5: "9c5a584d4eb5fe40d0f1bc2090112c65"
+end
+
+relative_path "libpng-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+
+  command "./configure" \
+          " --prefix=#{install_dir}/embedded" \
+          " --with-zlib-prefix=#{install_dir}/embedded", env: env
+
+  make "-j #{workers}", env: env
+  make "install", env: env
 end

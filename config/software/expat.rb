@@ -14,18 +14,27 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "expat"
+default_version "2.1.0"
 
-dependency "ruby"
-dependency "rubygems"
+relative_path "expat-#{version}"
+dependency "config_guess"
+
+#license "MIT"
+#license_file "COPYING"
+#skip_transitive_dependency_licensing true
+
+source url: "http://downloads.sourceforge.net/project/expat/expat/#{version}/expat-#{version}.tar.gz",
+       md5: "dd7dab7a5fea97d2a6a43f511449b7cd"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+
+  #update_config_guess(target: "conftools")
+
+  command "./configure" \
+          " --prefix=#{install_dir}/embedded", env: env
+
+  make "-j #{workers}", env: env
+  make "install", env: env
 end

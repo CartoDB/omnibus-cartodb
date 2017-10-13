@@ -1,5 +1,5 @@
 #
-# Copyright 2014 Chef Software, Inc.
+# Copyright 2012-2014 Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,19 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "version-manifest"
+description "generates a version manifest file"
+default_version "0.0.1"
 
-dependency "ruby"
-dependency "rubygems"
+#license :project_license
+#skip_transitive_dependency_licensing true
 
 build do
-  env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+  block do
+    File.open("#{install_dir}/version-manifest.txt", "w") do |f|
+      f.puts "#{project.name} #{project.build_version}"
+      f.puts ""
+      f.puts Omnibus::Reports.pretty_version_map(project)
+    end
+  end
 end

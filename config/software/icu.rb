@@ -1,5 +1,5 @@
 #
-# Copyright 2014 Chef Software, Inc.
+# Copyright 2012-2014 Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,18 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "icu"
+default_version "4.8.1.1"
 
-dependency "ruby"
-dependency "rubygems"
+source url: "http://download.icu-project.org/files/icu4c/4.8.1.1/icu4c-4_8_1_1-src.tgz",
+       md5: "ea93970a0275be6b42f56953cd332c17"
+
+relative_path "icu/source"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+
+  command "./configure --prefix=#{install_dir}/embedded", env: env
+  make "-j #{workers}", env: env
+  make "install", env: env
 end

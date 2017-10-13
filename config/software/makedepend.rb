@@ -1,5 +1,5 @@
 #
-# Copyright 2014 Chef Software, Inc.
+# Copyright 2014 Chef, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,27 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "makedepend"
+default_version "1.0.5"
 
-dependency "ruby"
-dependency "rubygems"
+#license "MIT"
+#license_file "COPYING"
+#skip_transitive_dependency_licensing true
+
+source url: "https://www.x.org/releases/individual/util/makedepend-1.0.5.tar.gz",
+       md5: "efb2d7c7e22840947863efaedc175747"
+
+relative_path "makedepend-1.0.5"
+
+dependency "xproto"
+dependency "util-macros"
+dependency "pkg-config-lite"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+
+  command "./configure --prefix=#{install_dir}/embedded", env: env
+
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
 end

@@ -14,18 +14,31 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "util-macros"
+default_version "1.18.0"
 
-dependency "ruby"
-dependency "rubygems"
+version "1.19.0" do
+  source md5: "40e1caa49a71a26e0aa68ddd00203717"
+end
+
+version "1.18.0" do
+  source md5: "fd0ba21b3179703c071bbb4c3e5fb0f4"
+end
+
+source url: "https://www.x.org/releases/individual/util/util-macros-#{version}.tar.gz"
+
+#license "MIT"
+#license_file "COPYING"
+#skip_transitive_dependency_licensing true
+
+relative_path "util-macros-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
-      " --version '#{version}'" \
-      " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+
+  command "./configure" \
+          " --prefix=#{install_dir}/embedded", env: env
+
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
 end

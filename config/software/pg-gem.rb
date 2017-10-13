@@ -14,18 +14,24 @@
 # limitations under the License.
 #
 
-name "ruby-saml-gem"
-default_version "1.0.0"
+name "pg-gem"
+default_version "0.17.1"
+
+#license "BSD-2-Clause"
+#license_file "https://raw.githubusercontent.com/ged/ruby-pg/master/LICENSE"
+#license_file "https://raw.githubusercontent.com/ged/ruby-pg/master/BSDL"
+## pg gem does not have any dependencies. We only install it from
+## rubygems here.
+#skip_transitive_dependency_licensing true
 
 dependency "ruby"
 dependency "rubygems"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
-  puts 'backed up uuid;'
-  gem "install ruby-saml" \
+
+  gem "install pg" \
       " --version '#{version}'" \
       " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc -w", env: env
+      " --no-ri --no-rdoc", env: env
 end
