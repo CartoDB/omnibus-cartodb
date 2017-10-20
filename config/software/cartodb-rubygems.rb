@@ -1,14 +1,20 @@
 name 'cartodb-rubygems'
-default_version 'blp_prod'
+default_version 'bbg-merge-28032017-omnibus'
 
-source git: "https://github.com/bloomberg/cartodb",    
-       submodules: true
+# Changed to package to work around checkout issues
+#source git: "https://github.com/cartodb-org/cartodb",    
+#       submodules: true
+
+version "bbg-merge-28032017-omnibus" do
+  source md5: "63ed6e7ee1f9b1cef75d460b6e02abe3" 
+end
+
+source path: "/bb/datavis/omnibus-cartodb/cartodb"
 
 relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  env["PATH"] = "/home/cartodb/.nvm/versions/node/v6.9.2/bin:" + env["PATH"] 
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
@@ -29,10 +35,11 @@ build do
     "BUNDLE_BUILD__NOKOGIRI" => "--use-system-libraries --with-xml2-lib=#{install_dir}/embedded/lib --with-xml2-include=#{install_dir}/embedded/include/libxml2 --with-xslt-lib=#{install_dir}/embedded/lib --with-xslt-include=#{install_dir}/embedded/include/libxslt --with-iconv-dir=#{install_dir}/embedded --with-zlib-dir=#{install_dir}/embedded"
   })
 
-  command 'npm link lib/carto_assets/',          cwd: staging_dir, env: env
+  #command 'npm link lib/carto_assets/',          cwd: staging_dir, env: env
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
-
+  command 'whoami', cwd: staging_dir, env: env
+  command 'id', cwd: staging_dir, env: env
   command 'grunt', cwd: staging_dir, env: env.merge({
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"

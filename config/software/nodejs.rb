@@ -1,5 +1,5 @@
 name 'nodejs'
-default_version '0.10.33'
+default_version '0.10.48'
 
 dependency "python"
 
@@ -23,6 +23,10 @@ version "0.10.35" do
   source md5: '2c00d8cf243753996eecdc4f6e2a2d11'
 end
 
+version "0.10.48" do 
+  source md5: '6646738d664ca4908ad0f288498c2334'
+end
+
 #### version 0.11 is not yet deemed stable, we shouldn't be shipping it
 # version "0.11.13" do
 #   source md5: '17c8bc4653bb32e8440d352e95985d03'
@@ -37,7 +41,9 @@ version "0.12.7" do
 end
 
 
-source url: "http://nodejs.org/dist/v#{version}/node-v#{version}.tar.gz"
+#source url: "http://nodejs.org/dist/v#{version}/node-v#{version}.tar.gz"
+#source url: "https://nodejs.org/dist/latest-v0.10.x/node-v#{version}.tar.gz"
+source url: 'https://nodejs.org/dist/latest-v0.10.x/node-v0.10.48.tar.gz'
 
 relative_path "node-v#{version}"
 
