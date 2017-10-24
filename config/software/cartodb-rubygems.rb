@@ -12,6 +12,7 @@ end
 source path: "/bb/datavis/omnibus-cartodb/cartodb"
 
 relative_path "#{name}-#{version}"
+whitelist_file /.+ffi.+/
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
