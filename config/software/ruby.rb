@@ -24,7 +24,7 @@ name "ruby"
 
 fips_enabled = (project.overrides[:fips] && project.overrides[:fips][:enabled]) || false
 
-default_version "2.1.8"
+default_version "2.2.3"
 
 dependency "ncurses" unless windows? || version.satisfies?(">= 2.1")
 dependency "zlib"
@@ -72,6 +72,8 @@ version("1.9.3-p484") { source md5: "8ac0dee72fe12d75c8b2d0ef5d0c2968" }
 source url: "https://cache.ruby-lang.org/pub/ruby/#{version.match(/^(\d+\.\d+)/)[0]}/ruby-#{version}.tar.gz"
 
 relative_path "ruby-#{version}"
+
+whitelist_file /.+ffi.+/
 
 env = with_standard_compiler_flags(with_embedded_path)
 
@@ -237,6 +239,7 @@ build do
     configure_command << " debugflags=-g"
   else
     configure_command << "--with-opt-dir=#{install_dir}/embedded"
+    configure_command << "--without-fiddle"
   end
 
   # This patch is expected to be included in 2.3.5 and is already in 2.4.1.
