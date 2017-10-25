@@ -1,21 +1,20 @@
 name 'cartodb-rubygems'
-default_version 'bbg-merge-28032017-omnibus'
+default_version 'bbg-merge-28032017'
 
 # Changed to package to work around checkout issues
-#source git: "https://github.com/cartodb-org/cartodb",    
-#       submodules: true
+source git: "https://github.com/cartodb-org/cartodb"
 
-version "bbg-merge-28032017-omnibus" do
-  source md5: "63ed6e7ee1f9b1cef75d460b6e02abe3" 
-end
-
-source path: "/bb/datavis/omnibus-cartodb/cartodb"
+#source path: "/bb/datavis/omnibus-cartodb/cartodb"
 
 relative_path "#{name}-#{version}"
 whitelist_file /.+ffi.+/
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+  command 'git fetch'
+  command 'git checkout bbg-merge-28032017'
+  command 'git submodule init'
+  command 'git submodule update'
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
