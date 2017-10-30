@@ -1,5 +1,5 @@
 name 'nodejs'
-default_version '0.10.33'
+default_version '0.10.48'
 
 dependency "python"
 
@@ -21,6 +21,10 @@ end
 
 version "0.10.35" do
   source md5: '2c00d8cf243753996eecdc4f6e2a2d11'
+end
+
+version "0.10.48" do
+  source md5: '6646738d664ca4908ad0f288498c2334'
 end
 
 #### version 0.11 is not yet deemed stable, we shouldn't be shipping it
