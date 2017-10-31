@@ -1,5 +1,5 @@
 name 'nodejs'
-default_version '8.1.1'
+default_version '6.9.5'
 
 dependency "python"
 
