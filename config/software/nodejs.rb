@@ -1,5 +1,5 @@
 name 'nodejs'
-default_version '6.9.5'
+default_version '6.9.2'
 
 dependency "python"
 
@@ -38,6 +38,10 @@ end
 
 version "0.12.7" do
   source md5: '5523ec4347d7fe6b0f6dda1d1c7799d5'
+end
+
+version "6.9.2" do
+  source md5: 'b9e6bd6eddb78f34becfa891d60071d8'
 end
 
 version "6.9.5" do

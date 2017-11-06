@@ -22,6 +22,8 @@ name "rubygems"
 
 dependency "ruby"
 
+version="2.6.14"
+
 if version && !source
   # NOTE: 2.1.11 is the last version of rubygems before the 2.2.x change to native gem install location
   #
