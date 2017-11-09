@@ -4,7 +4,7 @@ default_version 'bbg-merge-28032017'
 # Changed to package to work around checkout issues
 source git: "https://github.com/cartodb-org/cartodb"
 
-#source path: "/bb/datavis/omnibus-cartodb/cartodb"
+#source path: "/bb/datavis/omnibus-build/test-build/omnibus-cartodb/cartodb"
 
 relative_path "#{name}-#{version}"
 whitelist_file /.+ffi.+/
@@ -38,8 +38,8 @@ build do
   command 'npm link lib/carto_assets/',          cwd: staging_dir, env: env
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
-  command 'whoami', cwd: staging_dir, env: env
-  command 'id', cwd: staging_dir, env: env
+  command 'npm install -g grunt', cwd: staging_dir, env: env
+  command 'npm install -g grunt-cli', cwd: staging_dir, env: env
   command 'grunt', cwd: staging_dir, env: env.merge({
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
