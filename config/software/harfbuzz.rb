@@ -30,6 +30,11 @@ build do
 	"--disable-docs",
   ]
 
+  if mac_os_x?
+    env["LDFLAGS"] = "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include"
+    env["CPPFLAGS"] = "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include"
+  end
+
   command configure.join(" "), :env => env
   command "make -j #{workers}", :env => env
   command "make install"

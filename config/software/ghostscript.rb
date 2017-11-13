@@ -48,7 +48,13 @@ build do
     "--without-libidn"
   ]
 
-  command "sed -i 's/ZLIBDIR=src/ZLIBDIR=#{install_dir.gsub('/', '\\/')}\\/embedded\\/include/' configure.ac configure"
+  if mac_os_x?
+    # sed supports any delimiter for the s command, not just '/',
+    # so using ':' here prevents unnecessary escape sequences
+    command "sed -i '' 's:ZLIBDIR=src:ZLIBDIR=#{install_dir}/embedded/include:' configure.ac configure"
+  else
+    command "sed -i 's/ZLIBDIR=src/ZLIBDIR=#{install_dir.gsub('/', '\\/')}\\/embedded\\/include/' configure.ac configure"
+  end
   command "rm -rf expat freetype lcms2 jpeg libpng zlib"
   
   command configure.join(" "), :env => env

@@ -68,5 +68,9 @@ build do
   # build test binary and run 
   make "-j #{workers} all", cwd: "#{project_dir}/gdal/apps", env: with_standard_compiler_flags(with_embedded_path)
   copy "#{project_dir}/gdal/apps/test_ogrsf", "#{install_dir}/embedded/bin/"
-  command './run_all.py alg', cwd: "#{project_dir}/autotest", env: with_embedded_path
+  unless mac_os_x?
+    # Known mac os x bug documented here:
+    # http://lists.osgeo.org/pipermail/gdal-dev/2015-February/041065.html
+    command './run_all.py alg', cwd: "#{project_dir}/autotest", env: with_embedded_path
+  end
 end

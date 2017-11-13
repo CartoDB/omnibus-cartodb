@@ -15,7 +15,7 @@
 #
 
 name "postgresql"
-default_version "9.5"
+default_version "9.5.6"
 
 dependency "zlib"
 dependency "openssl"
@@ -74,15 +74,32 @@ end
 version "9.5" do
   source md5: "7e06af1fce2325a737deffb44e538e32"
 end
-#source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+
+version "9.5.6" do
+  source sha256: "bb9e5f6d34e20783e96e10c1d6c0c09c31749e802aaa46b793ce2522725ae12f"
+end
+
+if mac_os_x?
+  source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+else
+  source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+end
 #source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
 
-#relative_path "postgresql-#{version}"
-relative_path "postgres-REL9_5_STABLE_extension_shipping"
+if mac_os_x?
+  relative_path "postgresql-#{version}"
+else
+  relative_path "postgres-REL9_5_STABLE_extension_shipping"
+end
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+
+  if mac_os_x?
+    # Issue with ossp/uuid.h
+    # http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
+    ossp_uuid = ""
+  end
 
   #command "yum install openjade"
   command "./configure" \
@@ -96,6 +113,11 @@ build do
           " --with-libraries=#{install_dir}/embedded/lib", env: env
 
   make "-j #{workers} world", env: env
-  make "check", env: env
+  unless mac_os_x?
+    # The omnibus package must be run with sudo on mac,
+    # however the initdb command in one of the tests
+    # in make check must not.
+    make "check", env: env
+  end
   make "install-world", env: env
 end

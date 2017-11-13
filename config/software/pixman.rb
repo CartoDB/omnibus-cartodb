@@ -1,5 +1,9 @@
 name "pixman"
-default_version "0.32.4"
+default_version "0.34.0"
+
+version "0.34.0" do
+  source md5: "e80ebae4da01e77f68744319f01d52a3"
+end
 
 version "0.32.4" do
   source md5: "eba449138b972fbf4547a8c152fea162"

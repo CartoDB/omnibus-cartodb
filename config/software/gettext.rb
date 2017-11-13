@@ -1,8 +1,12 @@
 name "gettext"
-default_version "0.18.3.2"
+default_version "0.19.8.1"
 
 version "0.18.3.2" do
   source md5: "241aba309d07aa428252c74b40a818ef"
+end
+
+version "0.19.8.1" do
+  source md5: "df3f5690eaa30fd228537b00cb7b7590"
 end
 
 dependency "libiconv"
@@ -12,7 +16,7 @@ dependency "bzip2"
 dependency "libxml2"
 dependency "xz"
 
-source :url => "http://ftp.gnu.org/pub/gnu/gettext/gettext-#{version}.tar.gz"
+source :url => "http://ftp.gnu.org/pub/gnu/gettext/gettext-#{version}.tar.xz"
 
 relative_path "gettext-#{version}"
 

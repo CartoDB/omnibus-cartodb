@@ -17,15 +17,18 @@
 name "keyutils"
 default_version "1.5.9"
 
-source url: "http://people.redhat.com/~dhowells/keyutils/keyutils-1.5.9.tar.bz2",
-       md5: "7f8ac985c45086b5fbcd12cecd23cf07"
-       
-relative_path "keyutils-#{version}"
+unless mac_os_x?
+  source url: "http://people.redhat.com/~dhowells/keyutils/keyutils-1.5.9.tar.bz2",
+         md5: "7f8ac985c45086b5fbcd12cecd23cf07"
+         
+  relative_path "keyutils-#{version}"
+end
 
 build do
+  unless mac_os_x?
+    env = with_standard_compiler_flags(with_embedded_path)
 
-  env = with_standard_compiler_flags(with_embedded_path)
-
-  make "DESTDIR=#{install_dir}/embedded LIBDIR=/lib SHAREDIR=/share/keyutils INCLUDEDIR=/include NO_ARLIB=1 dist=''", env: env
-  make "install DESTDIR=#{install_dir}/embedded LIBDIR=/lib SHAREDIR=/share/keyutils INCLUDEDIR=/include NO_ARLIB=1 dist=''", env: env
+    make "DESTDIR=#{install_dir}/embedded LIBDIR=/lib SHAREDIR=/share/keyutils INCLUDEDIR=/include NO_ARLIB=1 dist=''", env: env
+    make "install DESTDIR=#{install_dir}/embedded LIBDIR=/lib SHAREDIR=/share/keyutils INCLUDEDIR=/include NO_ARLIB=1 dist=''", env: env
+  end
 end
