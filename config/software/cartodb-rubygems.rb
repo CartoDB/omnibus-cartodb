@@ -1,14 +1,20 @@
 name 'cartodb-rubygems'
-default_version 'blp_prod'
+default_version 'bbg-merge-28032017'
 
-source git: "https://github.com/bloomberg/cartodb",    
-       submodules: true
+# Changed to package to work around checkout issues
+source git: "https://github.com/cartodb-org/cartodb"
+
+#source path: "/bb/datavis/omnibus-build/test-build/omnibus-cartodb/cartodb"
 
 relative_path "#{name}-#{version}"
+whitelist_file /.+ffi.+/
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  
+  command 'git fetch'
+  command 'git checkout bbg-merge-28032017'
+  command 'git submodule init'
+  command 'git submodule update'
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
@@ -18,7 +24,6 @@ build do
             "install",
             "--path=#{install_dir}/embedded/gem",
             "--binstubs=#{install_dir}/embedded/bin",
-            "--deployment",
             "--retry 4",
             "-j#{workers}"
             ].join(' ')
@@ -32,7 +37,8 @@ build do
   command 'npm link lib/carto_assets/',          cwd: staging_dir, env: env
   command 'npm install -d',          cwd: staging_dir, env: env
   command 'npm install grunt-timer', cwd: staging_dir, env: env
-
+  command 'npm install -g grunt', cwd: staging_dir, env: env
+  command 'npm install -g grunt-cli', cwd: staging_dir, env: env
   command 'grunt', cwd: staging_dir, env: env.merge({
      "LC_ALL" => "en_US.UTF-8",
      "LANG" => "en_US.UTF-8"
