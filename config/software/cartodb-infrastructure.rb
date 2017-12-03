@@ -20,6 +20,7 @@ dependency 'varnish-cache'
 # cartodb customized applications
 dependency 'cartodb-gdal'
 dependency 'cartodb-postgis'
+dependency 'cartodb-timescale'
 
 # 3rd party applications
 dependency 'imagemagick'
