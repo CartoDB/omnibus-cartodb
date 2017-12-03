@@ -9,7 +9,6 @@ relative_path "timescaledb-#{version}"
 dependency 'postgresql'
 
 build do
-  command './bootstrap;cd build', env: with_embedded_path
-  make '-j 1', env: env
+  command './bootstrap;cd build && make', env: with_embedded_path
   make 'install'
 end
