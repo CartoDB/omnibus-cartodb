@@ -10,6 +10,6 @@ dependency 'postgresql'
 dependency 'cmake'
 
 build do
-  command './bootstrap;cd build && make', env: with_embedded_path
-  make 'install'
+  env = with_standard_compiler_flags(with_embedded_path)
+  command './bootstrap;cd build && make && make install', env:env 
 end

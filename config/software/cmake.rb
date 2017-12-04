@@ -24,6 +24,5 @@ relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./bootstrap && make && make install" \
-          " --prefix=#{install_dir}/embedded", env: env
+  command "./bootstrap && make && make install", env:env 
 end
