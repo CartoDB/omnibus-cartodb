@@ -7,6 +7,7 @@ source url: "https://github.com/timescale/timescaledb/archive/#{version}.tar.gz"
 relative_path "timescaledb-#{version}"
 
 dependency 'postgresql'
+dependency 'cmake'
 
 build do
   command './bootstrap;cd build && make', env: with_embedded_path
