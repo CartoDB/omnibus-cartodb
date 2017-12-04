@@ -24,5 +24,5 @@ relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./bootstrap && make && make install", env:env 
+  command "./bootstrap --prefix /bb/datavis/cartodb/embedded && make && make install", env:env 
 end
