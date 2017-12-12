@@ -15,7 +15,7 @@
 #
 
 name "postgresql"
-default_version "10.1"
+default_version "9.6.6"
 
 dependency "zlib"
 dependency "openssl"
@@ -31,6 +31,10 @@ ossp_uuid = " --with-ossp-uuid"
 
 version "10.1" do
   source md5: "0a92328d9970bfb85dcecd011817238a"
+end
+
+version "9.6.6" do
+  source md5: "7c65858172597de7937efd88f208969b"
 end
 
 version "9.1.9" do
