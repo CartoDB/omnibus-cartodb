@@ -1,7 +1,8 @@
 name 'cartodb-mapnik'
 default_version 'a22b3e54e885ccea404ba5997a052152e39b7d94'   # required for static maps export
+default_version '497b516febb7cd3211b6f4894765b3f2a8c8788b'
 
-source git: 'https://github.com/cartodb/mapnik.git'
+source git: 'https://github.com/mapnik/mapnik.git'
 
 relative_path "#{name}-#{version}"
 
