@@ -22,13 +22,13 @@ exclude "**/bundler/git"
 override :ruby, version: "2.4.1"
 
 dependency "preparation"
-#dependency "cartodb-infrastructure"
-dependency "cartodb-editor"
+dependency "cartodb-infrastructure"
+#dependency "cartodb-editor"
 #dependency "cartodb-postgis"
 #dependency "cartodb-sql-api"
 #dependency 'libXrender'
 #dependency 'pango'
 #dependency 'repmgr'
 #dependency 'pgbouncer'
-#dependency "cartodb-windshaft"
+dependency "cartodb-windshaft"
 dependency "version-manifest"
