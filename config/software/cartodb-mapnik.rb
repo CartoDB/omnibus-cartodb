@@ -1,6 +1,6 @@
 name 'cartodb-mapnik'
 #default_version 'a22b3e54e885ccea404ba5997a052152e39b7d94'   # required for static maps export
-default_version '497b516febb7cd3211b6f4894765b3f2a8c8788b'
+default_version 'v3.0.11'
 
 source git: 'https://github.com/mapnik/mapnik.git'
 
@@ -32,6 +32,10 @@ build do
 
   configure = ['./configure',
                "PREFIX=#{install_dir}/embedded",
+               "ICU_INCLUDES='/bb/datavis/cartodb/embedded/include/'",
+               "ICU_LIBS='/bb/datavis/cartodb/embedded/lib/'",
+               "HB_INCLUDES='/bb/datavis/cartodb/embedded/include/'",
+               "HB_LIBS='/bb/datavis/cartodb/embedded/lib/'"
               ].join(' ')
 
   command configure, env: env
