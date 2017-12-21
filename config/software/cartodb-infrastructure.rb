@@ -23,5 +23,5 @@ dependency 'cartodb-postgis'
 
 # 3rd party applications
 dependency 'imagemagick'
-dependency 'unicorn'
+#dependency 'unicorn'
 dependency 'zip'   
