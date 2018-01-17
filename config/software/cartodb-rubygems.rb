@@ -2,7 +2,7 @@ name 'cartodb-rubygems'
 default_version 'bbg-merge-28032017'
 
 # Changed to package to work around checkout issues
-source git: "https://github.com/cartodb-org/cartodb"
+source git: "https://github.com/bloomberg/cartodb"
 
 #source path: "/bb/datavis/omnibus-build/test-build/omnibus-cartodb/cartodb"
 
