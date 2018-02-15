@@ -1,5 +1,5 @@
 name 'cartodb-rubygems'
-default_version 'bbg-merge-28032017'
+default_version 'blp-dev'
 
 # Changed to package to work around checkout issues
 source git: "https://github.com/bloomberg/cartodb"
@@ -12,9 +12,13 @@ whitelist_file /.+ffi.+/
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   command 'git fetch'
-  command 'git checkout bbg-merge-28032017'
+  command 'git checkout blp-dev'
   command 'git submodule init'
   command 'git submodule update'
+
+  # Denote the git sha in the rpm for debugging purposes
+  git rev-parse HEAD > GIT_CARTO_SHA
+
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
   staging_dir = "#{install_dir}/embedded/cartodb-#{version}"
