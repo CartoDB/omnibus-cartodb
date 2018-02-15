@@ -1,5 +1,5 @@
 name 'cartodb-rubygems'
-default_version 'blp-dev'
+default_version 'blp_dev'
 
 # Changed to package to work around checkout issues
 source git: "https://github.com/bloomberg/cartodb"
@@ -12,7 +12,7 @@ whitelist_file /.+ffi.+/
 build do
   env = with_standard_compiler_flags(with_embedded_path)
   command 'git fetch'
-  command 'git checkout blp-dev'
+  command 'git checkout blp_dev'
   command 'git submodule init'
   command 'git submodule update'
 
