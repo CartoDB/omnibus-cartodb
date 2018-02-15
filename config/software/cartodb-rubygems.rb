@@ -17,7 +17,7 @@ build do
   command 'git submodule update'
 
   # Denote the git sha in the rpm for debugging purposes
-  git rev-parse HEAD > GIT_CARTO_SHA
+  command 'git rev-parse HEAD > GIT_CARTO_SHA'
 
   make "-j #{workers} all install", cwd: "#{project_dir}/lib/sql", env: env
     
