@@ -8,6 +8,8 @@ source url: "https://ftp.gnu.org/gnu/#{name}/#{name}-#{version}.tar.gz"
 
 relative_path "#{name}-#{version}"
 
+whitelist_file /.+ffi.+/
+
 dependency 'libiconv'
 
 build do

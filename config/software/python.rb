@@ -27,7 +27,6 @@ build do
           " --prefix=#{install_dir}/embedded" \
           " --enable-shared" \
           " --with-system-expat" \
-          " --with-system-ffi" \
           " --with-dbmliborder=gdbm", env: env
 
   make env: env

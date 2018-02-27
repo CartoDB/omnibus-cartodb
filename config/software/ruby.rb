@@ -1,5 +1,5 @@
 #
-# Copyright 2012-2016 Chef Software, Inc.
+# Copyright 2012-2017, Chef Software Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,35 +20,38 @@ name "ruby"
 #license_file "BSDL"
 #license_file "COPYING"
 #license_file "LEGAL"
-
-# - chef-client cannot use 2.2.x yet due to a bug in IRB that affects chef-shell on linux:
-#   https://bugs.ruby-lang.org/issues/11869
-# - the current status of 2.3.x is that it downloads but fails to compile.
-# - verify that all ffi libs are available for your version on all platforms.
-default_version "2.2.3"
+#skip_transitive_dependency_licensing true
 
 fips_enabled = (project.overrides[:fips] && project.overrides[:fips][:enabled]) || false
 
-dependency "patch" if solaris_10?
+default_version "2.2.3"
+
 dependency "ncurses" unless windows? || version.satisfies?(">= 2.1")
 dependency "zlib"
 dependency "openssl"
 dependency "libffi"
 dependency "libyaml"
-# Needed for chef_gem installs of (e.g.) nokogiri on upgrades -
-# they expect to see our libiconv instead of a system version.
-# Ignore on windows - TDM GCC comes with libiconv in the runtime
-# and that's the only one we will ever use.
-dependency "libiconv"
 
+version("2.4.2")      { source sha256: "93b9e75e00b262bc4def6b26b7ae8717efc252c47154abb7392e54357e6c8c9c" }
+version("2.4.1")      { source sha256: "a330e10d5cb5e53b3a0078326c5731888bb55e32c4abfeb27d9e7f8e5d000250" }
+version("2.4.0")      { source sha256: "152fd0bd15a90b4a18213448f485d4b53e9f7662e1508190aa5b702446b29e3d" }
+
+version("2.3.5")      { source sha256: "5462f7bbb28beff5da7441968471ed922f964db1abdce82b8860608acc23ddcc" }
+version("2.3.4")      { source sha256: "98e18f17c933318d0e32fed3aea67e304f174d03170a38fd920c4fbe49fec0c3" }
+version("2.3.3")      { source sha256: "241408c8c555b258846368830a06146e4849a1d58dcaf6b14a3b6a73058115b7" }
+version("2.3.1")      { source sha256: "b87c738cb2032bf4920fef8e3864dc5cf8eae9d89d8d523ce0236945c5797dcd" }
 version("2.3.0")      { source md5: "e81740ac7b14a9f837e9573601db3162" }
 
+version("2.2.8")      { source sha256: "8f37b9d8538bf8e50ad098db2a716ea49585ad1601bbd347ef84ca0662d9268a" }
+version("2.2.6")      { source sha256: "de8e192791cb157d610c48a9a9ff6e7f19d67ce86052feae62b82e3682cc675f" }
+version("2.2.5")      { source md5: "bd8e349d4fb2c75d90817649674f94be" }
 version("2.2.4")      { source md5: "9a5e15f9d5255ba37ace18771b0a8dd2" }
 version("2.2.3")      { source md5: "150a5efc5f5d8a8011f30aa2594a7654" }
 version("2.2.2")      { source md5: "326e99ddc75381c7b50c85f7089f3260" }
 version("2.2.1")      { source md5: "b49fc67a834e4f77249eb73eecffb1c9" }
 version("2.2.0")      { source md5: "cd03b28fd0b555970f5c4fd481700852" }
 
+version("2.1.9")      { source sha256: "034cb9c50676d2c09b3b6cf5c8003585acea05008d9a29fa737c54d52c1eb70c" }
 version("2.1.8")      { source md5: "091b62f0a9796a3c55de2a228a0e6ef3" }
 version("2.1.7")      { source md5: "2e143b8e19b056df46479ae4412550c9" }
 version("2.1.6")      { source md5: "6e5564364be085c45576787b48eeb75f" }
@@ -70,7 +73,9 @@ source url: "https://cache.ruby-lang.org/pub/ruby/#{version.match(/^(\d+\.\d+)/)
 
 relative_path "ruby-#{version}"
 
-env = with_standard_compiler_flags(with_embedded_path({}, msys: true), bfd_flags: true)
+whitelist_file /.+ffi.+/
+
+env = with_standard_compiler_flags(with_embedded_path)
 
 if mac_os_x?
   # -Qunused-arguments suppresses "argument unused during compilation"
@@ -103,11 +108,14 @@ elsif aix?
 elsif solaris_10?
   if sparc?
     # Known issue with rubby where too much GCC optimization blows up miniruby on sparc
-    env["CFLAGS"] << " -std=c99 -O0 -g -pipe -mcpu=v9"
+    env["CFLAGS"] << " -std=c99 -O3 -g -pipe -mcpu=v9"
     env["LDFLAGS"] << " -mcpu=v9"
   else
     env["CFLAGS"] << " -std=c99 -O3 -g -pipe"
   end
+elsif solaris_11?
+  env["CFLAGS"] << " -std=c99"
+  env["CPPFLAGS"] << " -D_XOPEN_SOURCE=600 -D_XPG6"
 elsif windows?
   env["CPPFLAGS"] << " -DFD_SETSIZE=2048"
 else # including linux
@@ -126,8 +134,8 @@ build do
 
   if solaris_10? && version.satisfies?(">= 2.1")
     patch source: "ruby-no-stack-protector.patch", plevel: 1, env: patch_env
-  elsif solaris_10? && version =~ /^1.9/
-    patch source: "ruby-sparc-1.9.3-c99.patch", plevel: 1, env: patch_env
+  elsif solaris_11? && version =~ /^2.1/
+    patch source: "ruby-solaris-linux-socket-compat.patch", plevel: 1, env: patch_env
   end
 
   # wrlinux7/ios_xr build boxes from Cisco include libssp and there is no way to
@@ -144,25 +152,36 @@ build do
   # other platforms.  generally you need to have a condition where the
   # embedded and non-embedded libs get into a fight (libiconv, openssl, etc)
   # and ruby trying to set LD_LIBRARY_PATH itself gets it wrong.
+  #
+  # Also, fix paths emitted in the makefile on windows on both msys and msys2.
   if version.satisfies?(">= 2.1")
-    patch source: "ruby-2_1_3-no-mkmf.patch", plevel: 1, env: patch_env
+    patch source: "ruby-mkmf.patch", plevel: 1, env: patch_env
     # should intentionally break and fail to apply on 2.2, patch will need to
     # be fixed.
   end
 
-  # Patch Makefile.in to allow RCFLAGS environment variable to be accepted
-  # when invoking WINDRES.
-  patch source: "ruby-take-windres-rcflags.patch", plevel: 1, env: patch_env
+  # Fix find_proxy with IP format proxy and domain format uri raises an exception.
+  # This only affects 2.4 and the fix is expected to be included in 2.4.2
+  # https://github.com/ruby/ruby/pull/1513
+  if version == "2.4.0" || version == "2.4.1"
+    patch source: "2.4_no_proxy_exception.patch", plevel: 1, env: patch_env
+  end
 
   # Fix reserve stack segmentation fault when building on RHEL5 or below
   # Currently only affects 2.1.7 and 2.2.3. This patch taken from the fix
   # in Ruby trunk and expected to be included in future point releases.
-  # https://redmine.ruby-lang.org/issues/11602
+  # https://bugs.ruby-lang.org/issues/11602
   if rhel? &&
       platform_version.satisfies?("< 6") &&
       (version == "2.1.7" || version == "2.2.3")
-
     patch source: "ruby-fix-reserve-stack-segfault.patch", plevel: 1, env: patch_env
+  end
+
+  if rhel? &&
+      platform_version.satisfies?("< 6") &&
+      version.satisfies?(">= 2.4") &&
+      version.satisfies?("< 2.5")
+    patch source: "ruby_no_conversion_warnings.patch", plevel: 1, env: patch_env
   end
 
   configure_command = ["--with-out-ext=dbm,readline",
@@ -173,6 +192,7 @@ build do
                        "--without-tk",
                        "--disable-dtrace"]
   configure_command << "--with-ext=psych" if version.satisfies?("< 2.3")
+  #configure_command << "--with-bundled-md5" if fips_mode?
   configure_command << "--with-bundled-md5" if fips_enabled
 
   if aix?
@@ -195,7 +215,7 @@ build do
     configure_command << "ac_cv_header_execinfo_h=no"
     configure_command << "--with-opt-dir=#{install_dir}/embedded"
   elsif smartos?
-    # Opscode patch - someara@opscode.com
+    # Chef patch - sean@sean.io
     # GCC 4.7.0 chokes on mismatched function types between OpenSSL 1.0.1c and Ruby 1.9.3-p286
     patch source: "ruby-openssl-1.0.1c.patch", plevel: 1, env: patch_env
 
@@ -210,9 +230,21 @@ build do
     configure_command << "ac_cv_func_dl_iterate_phdr=no"
     configure_command << "--with-opt-dir=#{install_dir}/embedded"
   elsif windows?
+    if version.satisfies?(">= 2.3")
+      # Windows Nano Server COM libraries do not support Apartment threading
+      # instead COINIT_MULTITHREADED must be used
+      patch source: "ruby_nano.patch", plevel: 1, env: patch_env
+    end
+
     configure_command << " debugflags=-g"
   else
     configure_command << "--with-opt-dir=#{install_dir}/embedded"
+    configure_command << "--without-fiddle"
+  end
+
+  # This patch is expected to be included in 2.3.5 and is already in 2.4.1.
+  if version == "2.3.4"
+    patch source: "ruby_2_3_gcc7.patch", plevel: 0, env: patch_env
   end
 
   # FFS: works around a bug that infects AIX when it picks up our pkg-config
@@ -221,13 +253,44 @@ build do
   env["PKG_CONFIG"] = "/bin/true" if aix?
 
   configure(*configure_command, env: env)
+  make "-j #{workers}", env: env
+  make "-j #{workers} install", env: env
+
   if windows?
-    # On windows, msys make 3.81 breaks with parallel builds.
-    make env: env
-    make "install", env: env
-  else
-    make "-j #{workers}", env: env
-    make "-j #{workers} install", env: env
+    # Needed now that we switched to msys2 and have not figured out how to tell
+    # it how to statically link yet
+    dlls = [
+      "libwinpthread-1",
+      "libstdc++-6",
+    ]
+    if windows_arch_i386?
+      dlls << "libgcc_s_dw2-1"
+    else
+      dlls << "libgcc_s_seh-1"
+    end
+
+    dlls.each do |dll|
+      mingw = ENV["MSYSTEM"].downcase
+      msys_path = ENV["OMNIBUS_TOOLCHAIN_INSTALL_DIR"] ? "#{ENV["OMNIBUS_TOOLCHAIN_INSTALL_DIR"]}/embedded/bin" : "C:/msys2"
+      windows_path = "#{msys_path}/#{mingw}/bin/#{dll}.dll"
+      if File.exist?(windows_path)
+        copy windows_path, "#{install_dir}/embedded/bin/#{dll}.dll"
+      else
+        raise "Cannot find required DLL needed for dynamic linking: #{windows_path}"
+      end
+    end
+
+    if version.satisfies?(">= 2.4")
+      %w{ erb gem irb rdoc ri }.each do |cmd|
+        copy "#{project_dir}/bin/#{cmd}", "#{install_dir}/embedded/bin/#{cmd}"
+      end
+    end
+
+    # Ruby 2.4 seems to mark rake.bat as read-only.
+    # Mark it as writable so that we can install other version of rake without
+    # running into permission errors.
+    command "attrib -r #{install_dir}/embedded/bin/rake.bat"
+
   end
 
 end

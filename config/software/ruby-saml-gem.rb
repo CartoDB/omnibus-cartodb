@@ -22,9 +22,10 @@ dependency "rubygems"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-
+  command "mv #{install_dir}/embedded/bin/uuid #{install_dir}/embedded/bin/uuid.bkup"
+  puts 'backed up uuid;'
   gem "install ruby-saml" \
       " --version '#{version}'" \
       " --bindir '#{install_dir}/embedded/bin'" \
-      " --no-ri --no-rdoc", env: env
+      " --no-ri --no-rdoc -w", env: env
 end
