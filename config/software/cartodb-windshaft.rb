@@ -1,5 +1,5 @@
 name 'cartodb-windshaft'
-default_version 'cdb'
+default_version '4.5.3'
 
 dependency 'cartodb-mapnik'
 
