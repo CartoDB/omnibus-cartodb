@@ -17,6 +17,8 @@ install_dir "#{package_root}/#{name}"
 exclude "**/.git"
 exclude "**/bundler/git"
 
+override :ruby, version: "2.4.1"
+
 dependency "preparation"
 dependency "cartodb-infrastructure"
 dependency 'libXrender'
