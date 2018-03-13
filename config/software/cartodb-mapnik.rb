@@ -33,8 +33,8 @@ build do
 
   configure = ['./configure',
                "PREFIX=#{install_dir}/embedded",
-               "ICU_INCLUDES='/bb/datavis/cartodb/embedded/include/'",
-               "ICU_LIBS='/bb/datavis/cartodb/embedded/lib/'"              
+               "ICU_INCLUDES='#{install_dir}/embedded/include/'",
+               "ICU_LIBS='#{install_dir}/embedded/lib/'"              
               ].join(' ')
 
   command configure, env: env
