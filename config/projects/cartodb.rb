@@ -31,5 +31,5 @@ dependency 'libXrender'
 dependency 'pango'
 dependency 'repmgr'
 dependency 'pgbouncer'
-#dependency "cartodb-windshaft"
+dependency "cartodb-windshaft"
 dependency "version-manifest"
