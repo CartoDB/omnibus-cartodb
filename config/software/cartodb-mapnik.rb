@@ -3,7 +3,7 @@ name 'cartodb-mapnik'
 default_version 'cppattributecompilefix'
 
 #source git: 'https://github.com/cartodb/mapnik.git',
-             submodules: true
+#             submodules: true
 
 # Fork because of https://github.com/CartoDB/mapnik/issues/37
 source git: 'https://github.com/dprophet/mapnik.git',
