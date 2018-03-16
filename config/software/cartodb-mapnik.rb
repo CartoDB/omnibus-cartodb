@@ -1,12 +1,8 @@
 name 'cartodb-mapnik'
 #default_version 'a22b3e54e885ccea404ba5997a052152e39b7d94'   # required for static maps export
-default_version 'cppattributecompilefix'
+default_version 'v3.0.15-carto'   # v3.0.15-carto is the new branch that supports vectors
 
-#source git: 'https://github.com/cartodb/mapnik.git',
-#             submodules: true
-
-# Fork because of https://github.com/CartoDB/mapnik/issues/37
-source git: 'https://github.com/dprophet/mapnik.git',
+source git: 'https://github.com/cartodb/mapnik.git',
              submodules: true
              
 relative_path "#{name}-#{version}"
