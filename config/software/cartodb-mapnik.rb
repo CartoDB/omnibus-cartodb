@@ -2,8 +2,7 @@ name 'cartodb-mapnik'
 #default_version 'a22b3e54e885ccea404ba5997a052152e39b7d94'   # required for static maps export
 default_version 'v3.0.15-carto'   # v3.0.15-carto is the new branch that supports vectors
 
-source git: 'https://github.com/bloomberg/mapnik/',
-             submodules: true
+source git: 'https://github.com/bloomberg/mapnik/'
              
 relative_path "#{name}-#{version}"
 
@@ -30,6 +29,9 @@ dependency "cartodb-postgis"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+  command 'git fetch'
+  command 'git submodule init'
+  command 'git submodule update --recursive'
 
   configure = ['./configure',
                "PREFIX=#{install_dir}/embedded",
