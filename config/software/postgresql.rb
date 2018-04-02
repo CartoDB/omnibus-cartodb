@@ -15,7 +15,7 @@
 #
 
 name "postgresql"
-default_version "9.5"
+default_version "9.6.8"
 
 dependency "zlib"
 dependency "openssl"
@@ -28,6 +28,18 @@ dependency "openldap"
 dependency "bison"
 
 ossp_uuid = " --with-ossp-uuid"
+
+version "10.1" do
+  source md5: "0a92328d9970bfb85dcecd011817238a"
+end
+
+version "9.6.6" do
+  source md5: "7c65858172597de7937efd88f208969b"
+end
+
+version "9.6.8" do
+  source md5: "4c907252d166eabe2fc2b5cc3f034583"
+end
 
 version "9.1.9" do
   source md5: "6b5ea53dde48fcd79acfc8c196b83535"
@@ -75,12 +87,12 @@ version "9.5" do
   #source md5: "7e06af1fce2325a737deffb44e538e32"
   source md5: "10d003de5fd5867aa0f58df9f2af4247"
 end
-#source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
-source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
-#source git: "bbgithub:datavis-cartodb/postgres9.5fdw"
 
-#relative_path "postgresql-#{version}"
-relative_path "postgres-REL9_5_STABLE_extension_shipping"
+source url: "http://ftp.postgresql.org/pub/source/v#{version}/postgresql-#{version}.tar.bz2"
+#source url: "https://github.com/CartoDB/postgres/archive/REL9_5_STABLE_extension_shipping.zip"
+
+relative_path "postgresql-#{version}"
+#relative_path "postgres-REL9_5_STABLE_extension_shipping"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
