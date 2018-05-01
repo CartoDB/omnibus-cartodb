@@ -1,5 +1,5 @@
 name 'ImageMagick'
-default_version '59c320b90d2228fabfe1de94e3be1d97768d8991'
+default_version 'a154a2863ad5fc22ef33640b3b77e9740761062c'
 
 source git: "https://github.com/#{name}/#{name}.git"
 
