@@ -15,7 +15,8 @@
 #
 
 name "repmgr"
-default_version "3.1.4"
+#default_version "3.1.4"
+default_version "4.3.0rc2"
 
 dependency "postgresql"
 
@@ -27,11 +28,16 @@ version "3.1.4" do
   source md5: "a3d5b1b093dccc289d8c26c8a9324779"
 end
 
+version "4.3.0rc2" do
+  source md5: "e4545c956eac2acd22cb75a4df7cba17"
+end
+
 source url: "https://github.com/2ndQuadrant/repmgr/archive/v#{version}.tar.gz"
 
 relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
+  command "./configure", env: env
   make "USE_PGXS=1  install", env: env
 end
