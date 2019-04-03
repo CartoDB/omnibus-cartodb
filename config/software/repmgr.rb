@@ -35,7 +35,8 @@ end
 #source url: "http://artprod.dev.bloomberg.com/artifactory/bb-datavis-local/cartodb/snapshot/esx/repmgr/repmgr-4.3.0rc2.tar.gz"
 source git: "https://bbgithub.dev.bloomberg.com/datavis-cartodb/repmgr-4.3.0rc2.git"
 
-relative_path "#{name}-#{version}"
+#relative_path "#{name}-#{version}"
+relative_path "repmgr-4.3.0rc2"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
