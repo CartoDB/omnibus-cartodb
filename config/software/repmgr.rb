@@ -17,6 +17,7 @@
 name "repmgr"
 #default_version "3.1.4"
 default_version "4.3.0rc2"
+#default_version "master"
 
 dependency "postgresql"
 
