@@ -1,7 +1,7 @@
 name 'pg_schema_triggers'
 default_version 'master'
 
-source git: "https://bbgithub.dev.bloomberg.com/datavis-cartodb/pg_schema_triggers"
+source git: "https://bbgithub.dev.bloomberg.com/datavis-cartodb/pg_schema_triggers.git"
 
 relative_path "#{name}-#{version}"
 
