@@ -32,7 +32,7 @@ version "4.3.0rc2" do
   source md5: "e4545c956eac2acd22cb75a4df7cba17"
 end
 
-source url: "https://github.com/2ndQuadrant/repmgr/archive/v#{version}.tar.gz"
+source url: "http://artprod.dev.bloomberg.com/artifactory/bb-datavis-local/cartodb/snapshot/esx/repmgr/repmgr-4.3.0rc2.tar.gz"
 
 relative_path "#{name}-#{version}"
 
