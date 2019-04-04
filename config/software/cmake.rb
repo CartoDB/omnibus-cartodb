@@ -14,33 +14,15 @@
 # limitations under the License.
 #
 
-name "repmgr"
-#default_version "3.1.4"
-#default_version "4.3.0"
-default_version "master"
+name "cmake"
+default_version "3.10.0"
 
-dependency "postgresql"
-
-version "3.0.2" do
-  source md5: "2eb74874219ed7e74c224871232a1bfa"
-end
-
-version "3.1.4" do
-  source md5: "a3d5b1b093dccc289d8c26c8a9324779"
-end
-
-version "4.3.0" do
-  source md5: "5e301e33290d082738ea85ebde6c0434"
-end
-
-#source url: "https://github.com/2ndQuadrant/repmgr/archive/v4.3.0.tar.gz"
-source git: "https://bbgithub.dev.bloomberg.com/datavis-cartodb/repmgr-4.3.0.git"
-
-#relative_path "#{name}-#{version}"
-relative_path "repmgr-4.3.0"
+source url: "https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz",
+       md5:  "f3f8e70ca3055f3cd288f89ff233057e"
+       
+relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./configure", env: env
-  make "USE_PGXS=1  install", env: env
+  command "./bootstrap --prefix=/bb/datavis/cartodb/embedded && make && make install", env:env 
 end
