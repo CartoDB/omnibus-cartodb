@@ -15,9 +15,7 @@
 #
 
 name "repmgr"
-#default_version "3.1.4"
-#default_version "4.3.0"
-default_version "master"
+default_version "3.1.4"
 
 dependency "postgresql"
 
@@ -29,18 +27,11 @@ version "3.1.4" do
   source md5: "a3d5b1b093dccc289d8c26c8a9324779"
 end
 
-version "4.3.0" do
-  source md5: "5e301e33290d082738ea85ebde6c0434"
-end
+source url: "https://github.com/2ndQuadrant/repmgr/archive/v#{version}.tar.gz"
 
-#source url: "https://github.com/2ndQuadrant/repmgr/archive/v4.3.0.tar.gz"
-source git: "https://bbgithub.dev.bloomberg.com/datavis-cartodb/repmgr-4.3.0.git"
-
-#relative_path "#{name}-#{version}"
-relative_path "repmgr-4.3.0"
+relative_path "#{name}-#{version}"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-  command "./configure", env: env
   make "USE_PGXS=1  install", env: env
 end
