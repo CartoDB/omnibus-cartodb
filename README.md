@@ -1,3 +1,17 @@
+# ⚠️ ARCHIVED - This repository is no longer maintained
+
+**This repository has been archived and is no longer actively maintained.**
+
+This project was last updated on 2019-09-06 and is preserved for historical reference only.
+
+- 🔒 **Read-only**: No new issues, pull requests, or changes will be accepted
+- 📦 **No support**: This code is provided as-is with no support or updates
+- 🔍 **For reference only**: You may fork this repository if you wish to continue development
+
+For current CARTO projects and actively maintained repositories, please visit: https://github.com/CartoDB
+
+---
+
 cartodb Omnibus project
 ========================
 This omnibus project has both a full-stack platform-specific package named `cartodb` **AND** individual services packages.
